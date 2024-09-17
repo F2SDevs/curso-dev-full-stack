@@ -2,15 +2,10 @@
 sidebar_position: 1
 ---
 
-# Sobre o Curso Fullstack
+# Sobre o Curso
 
-**Bem-vindo ao nosso curso Fullstack! Este curso foi desenvolvido especialmente para quem deseja aprender a programar do zero e construir uma carreira na área de desenvolvimento de software. A seguir, você encontrará uma visão geral clara e detalhada sobre o que você pode esperar aprender e como o curso está estruturado.**
 
-## O que é um Curso Fullstack?
-
-**Um curso Fullstack é uma formação completa que cobre todas as etapas necessárias para criar um software, desde a construção do frontend (a parte do software com a qual os usuários interagem) até o backend (a parte que lida com o armazenamento de dados e lógica de negócios). Em nosso curso, você aprenderá a trabalhar com tecnologias essenciais que o ajudarão a desenvolver aplicações web robustas e eficientes. Além disso, o curso é projetado para prepará-lo de forma eficaz para o mercado de trabalho, proporcionando as habilidades e conhecimentos que são altamente valorizados pelos empregadores na área de desenvolvimento de software.**
-
-O profissional melhor preparado para o mercado de desenvolvimento é o profissional **Fullstack**.
+**Bem-vindo ao nosso curso Fullstack, desenvolvido para quem quer aprender a programar do zero e iniciar uma carreira no desenvolvimento de software. Este curso oferece uma formação completa, cobrindo todas as etapas do desenvolvimento de software, do frontend ao backend. Você aprenderá a usar tecnologias essenciais para criar aplicações web robustas e será preparado de forma eficaz para o mercado de trabalho, adquirindo habilidades altamente valorizadas pelos empregadores. O profissional mais bem preparado para o mercado é o Fullstack, e nosso curso está aqui para garantir que você se torne um deles.**
 
 ### Tecnologias que Você Vai Aprender
 
