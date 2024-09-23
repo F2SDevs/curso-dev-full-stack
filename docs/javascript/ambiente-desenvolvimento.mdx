@@ -4,7 +4,47 @@ sidebar_label: Ambiente de Desenvolvimento
 sidebar_position: 2
 ---
 
-## Configurando Node.js
-  
+import Admonition from "@theme/Admonition";
 
-## Configurnado VsCode
+
+
+## Instalando Node.js
+Você pode seguir pelo site official do [Node](https://nodejs.org/pt/download/package-manager) ou por aqui mesmo.
+
+### 1. Atualize os pacotes do sistema
+Antes de instalar qualquer novo software, é uma boa prática garantir que todos os pacotes do sistema estejam atualizados. Abra o terminal e execute os seguintes comandos:
+```bash
+sudo apt update
+sudo apt upgrade
+```
+
+### 2. Instale a [nvm](https://github.com/nvm-sh/nvm) e o Node
+O nvm conhecido como ***Node Version Manager***, ou ***Gestor de Pacote de Node***
+```bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
+
+# Instale a ultima versão LTS do node
+nvm install --lts
+
+# Defina essa versão como global
+nvm use global default
+```
+
+### 3. Verificar a instalação
+Para garantir que o Node.js e o npm foram instalados corretamente, verifique as versões com os seguintes comandos:
+
+```bash
+# É pare retornal a versão que foi instalada ex: v20.17.0
+node -v 
+
+
+# E aqui ex: 10.8.2
+npm -v
+```
+
+<Admonition type="info">
+  Não se preocupe se sua versão for diferente da que é mostrado no seu exemplo. Provavelmente ela vai ser. Isso acontece porque o node está em constante melhora.
+</Admonition>
+
+
+## Instalando VsCode
