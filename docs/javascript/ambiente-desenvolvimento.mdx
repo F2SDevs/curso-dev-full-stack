@@ -6,21 +6,23 @@ sidebar_position: 2
 
 import Admonition from "@theme/Admonition";
 
-
-
 ## Instalando Node.js
-Você pode seguir pelo site official do [***Node***](https://nodejs.org/pt/download/package-manager) ou por aqui mesmo.
+
+Você pode seguir pelo site official do [**_Node_**](https://nodejs.org/pt/download/package-manager) ou por aqui mesmo.
 
 ### 1. Atualize os pacotes do sistema
+
 Antes de instalar qualquer novo software, é uma boa prática garantir que todos os pacotes do sistema estejam atualizados. Abra o terminal e execute os seguintes comandos :
+
 ```bash
 sudo apt update
 sudo apt upgrade
 ```
 
+### 2. Instale a [_nvm_](https://github.com/nvm-sh/nvm) e o Node
 
-### 2. Instale a [*nvm*](https://github.com/nvm-sh/nvm) e o Node
-O nvm conhecido como ***Node Version Manager***, ou ***Gestor de Pacote de Node***
+O nvm conhecido como **_Node Version Manager_**, ou **_Gestor de Pacote de Node_**
+
 ```bash
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
 
@@ -31,13 +33,13 @@ nvm install --lts
 nvm use global default
 ```
 
-
 ### 3. Verificar a instalação
+
 Para garantir que o Node.js e o npm foram instalados corretamente, verifique as versões com os seguintes comandos :
 
 ```bash
 # É pare retornal a versão que foi instalada ex: v20.17.0
-node -v 
+node -v
 
 
 # E aqui ex: 10.8.2
@@ -45,25 +47,31 @@ npm -v
 ```
 
 <Admonition type="info">
-  Não se preocupe se sua versão for diferente da que é mostrado no exemplo. Provavelmente ela vai ser. Isso acontece porque o node está em constante melhora.
+  Não se preocupe se sua versão for diferente da que é mostrado no exemplo.
+  Provavelmente ela vai ser. Isso acontece porque o node está em constante
+  melhora.
 </Admonition>
 
 ### 4. Tutorial em Vídeo
-- Assista um vídeo recomendado [***aqui***](https://youtu.be/B9Hd11RT7Bk?si=WZXC9iQXo9HM6F24).
 
+- Assista um vídeo recomendado [**_aqui_**](https://youtu.be/B9Hd11RT7Bk?si=WZXC9iQXo9HM6F24).
 
 ## Instalando VsCode
 
 ### 1. Baixe o arquivo
-Entre no site do [***Visual Studio Code***](https://code.visualstudio.com).
+
+Entre no site do [**_Visual Studio Code_**](https://code.visualstudio.com).
 Olhe qual sua distro com comando `lsb_release -a`, pesquise qual executável para sua distro, **.deb** ou **.rpm** e baixe o arquivo.
 
 ### 2. Instale o VsCode
 
 - Navegue até a pasta onde o arquivo foi baixado ( geralmente `cd ~/Downloads` )
 - Execute o comando para instalar :
+
 ```bash
 sudo apt install <nome-do-arquivo.deb>
 ```
+
 ### 3. Tutorial em Vídeo
-- Assista um vídeo recomendado [***aqui***](https://youtu.be/1aKyaFqJh7A?si=2llWEg88zuUusoaI).
+
+- Assista um vídeo recomendado [**_aqui_**](https://youtu.be/1aKyaFqJh7A?si=2llWEg88zuUusoaI).
