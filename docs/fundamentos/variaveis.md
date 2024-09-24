@@ -80,18 +80,11 @@ filename="const-exemplo.js" />
 import Admonition from '@theme/Admonition';
 
 <Admonition type="info" title="Considerações Importantes" >
-- **Evitando Loops Infinitos**:  
-Sempre certifique-se de que a condição do loop eventualmente se torne falsa, ou use break para sair do loop.  
-- **Break e Continue**:  
-break: Sai imediatamente do loop.
-continue: Pula para a próxima iteração do loop.
-- **Escolhendo o Loop Certo**:  
-Use for quando souber o número exato de iterações.  
-Use while quando a condição de parada não for baseada em um contador simples.  
-Use do...while quando precisar que o código seja executado pelo menos uma vez.  
-- **Performance**:  
-Em geral, for loops são ligeiramente mais rápidos, mas a diferença é negligenciável na maioria dos casos.
-Loops Aninhados: É possível ter loops dentro de loops, mas cuidado com a complexidade e o desempenho.
+- **Uso de let vs const**: Sempre que possível, prefira usar `const`, pois garante que o valor não será reatribuído. Use `let` apenas quando precisar de uma variável cujo valor será alterado. 
+- **Escopo de Bloco**: Tanto `let` quanto `const` respeitam o escopo de bloco, ou seja, são limitados ao `{}` em que foram declarados. Isso previne problemas comuns com o `var`, como variáveis que “vazam” para fora de loops ou funções. 
+- **Hoisting com let e const**: Apesar de serem içadas, as variáveis declaradas com `let` e `const` não podem ser usadas antes de sua declaração. 
+- **Mutabilidade de const**: Lembre-se de que `const` garante que o valor não será reatribuído, mas o conteúdo de objetos e arrays pode ser alterado.
+
 
 
 <!-- title: Declarações de Variáveis: var, let e const
