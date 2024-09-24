@@ -4,20 +4,19 @@ sidebar_label: Estruturas de Repetição
 sidebar_position: 2
 ---
 
-import Example from '@site/src/components/Example'
-
+import Example from "@site/src/components/Example";
 
 ## Explicação Conceitual
 
 As estruturas de repetição, ou loops, são ferramentas essenciais em programação que permitem executar um bloco de código múltiplas vezes. Em JavaScript, temos três principais tipos de loops:
 
-## For Loop  
-O for loop é usado quando sabemos antecipadamente quantas vezes queremos que o código seja executado.  
+## For Loop
+
+O for loop é usado quando sabemos antecipadamente quantas vezes queremos que o código seja executado.
 
 ### Sintaxe
-<Example 
-language="js" 
-filename="for-loop-sintaxe.js" />
+
+<Example language="js" filename="for-loop-sintaxe.js" />
 
 ### Explicação:
 
@@ -26,17 +25,16 @@ filename="for-loop-sintaxe.js" />
 - **Expressão** final: Executada no final de cada iteração, geralmente para atualizar o contador.
 
 ### Exemplo
-<Example 
-language="js" 
-filename="for-loop-exemplo.js" />
+
+<Example language="js" filename="for-loop-exemplo.js" />
 
 ## While Loop
+
 O while loop é usado quando queremos que o código seja executado enquanto uma condição específica for verdadeira.
 
 ### Sintaxe
-<Example 
-language="js" 
-filename="while-loop-sintaxe.js" />
+
+<Example language="js" filename="while-loop-sintaxe.js" />
 
 ### Explicação:
 
@@ -45,18 +43,16 @@ filename="while-loop-sintaxe.js" />
 - Se a condição for falsa, o loop termina.
 
 ### Exemplo
-<Example 
-language="js" 
-filename="while-loop-exemplo.js" />
 
+<Example language="js" filename="while-loop-exemplo.js" />
 
 ## Do...While Loop
+
 O do...while loop é similar ao while, mas garante que o código seja executado pelo menos uma vez, pois a condição é verificada no final da iteração.
 
 ### Sintaxe
-<Example 
-language="js" 
-filename="do-while-loop-sintaxe.js" />
+
+<Example language="js" filename="do-while-loop-sintaxe.js" />
 
 ### Explicação:
 
@@ -65,23 +61,20 @@ filename="do-while-loop-sintaxe.js" />
 - Se a condição for falsa, o loop termina.
 
 ### Exemplo
-<Example 
-language="js" 
-filename="do-while-loop-exemplo.js" />
 
-import Admonition from '@theme/Admonition';
+<Example language="js" filename="do-while-loop-exemplo.js" />
 
-<Admonition type="info" title="Considerações Importantes" >
-- **Evitando Loops Infinitos**:  
-Sempre certifique-se de que a condição do loop eventualmente se torne falsa, ou use break para sair do loop.  
-- **Break e Continue**:  
-break: Sai imediatamente do loop.
-continue: Pula para a próxima iteração do loop.
-- **Escolhendo o Loop Certo**:  
-Use for quando souber o número exato de iterações.  
-Use while quando a condição de parada não for baseada em um contador simples.  
-Use do...while quando precisar que o código seja executado pelo menos uma vez.  
-- **Performance**:  
-Em geral, for loops são ligeiramente mais rápidos, mas a diferença é negligenciável na maioria dos casos.
-Loops Aninhados: É possível ter loops dentro de loops, mas cuidado com a complexidade e o desempenho.
+import Admonition from "@theme/Admonition";
+
+<Admonition type="info" title="Considerações Importantes">
+  - **Evitando Loops Infinitos**: Sempre certifique-se de que a condição do loop
+  eventualmente se torne falsa, ou use break para sair do loop. - **Break e
+  Continue**: break: Sai imediatamente do loop. continue: Pula para a próxima
+  iteração do loop. - **Escolhendo o Loop Certo**: Use for quando souber o
+  número exato de iterações. Use while quando a condição de parada não for
+  baseada em um contador simples. Use do...while quando precisar que o código
+  seja executado pelo menos uma vez. - **Performance**: Em geral, for loops são
+  ligeiramente mais rápidos, mas a diferença é negligenciável na maioria dos
+  casos. Loops Aninhados: É possível ter loops dentro de loops, mas cuidado com
+  a complexidade e o desempenho.
 </Admonition>
