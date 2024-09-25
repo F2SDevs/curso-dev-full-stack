@@ -5,87 +5,90 @@ sidebar_position: 1
 ---
 
 import Example from "@site/src/components/Example";
+import Admonition from "@theme/Admonition";
 
 ## Explicação Conceitual
 
-Em JavaScript, as variáveis podem ser declaradas usando três palavras-chave: var, let e const. Cada uma tem características específicas quanto ao escopo, redeclaração e imutabilidade.
+Em JavaScript, as variáveis podem ser declaradas usando três palavras-chave: [***Var***](#var), [***Let***](#let) e [***Const***](#const).
 
 ## Var
 
-A palavra-chave var é usada para declarar variáveis em escopo de função ou global. Ela é mais antiga e tem algumas particularidades que foram corrigidas nas palavras-chave mais modernas.
+Usada para declarar variáveis em **escopo de função**, o que significa que uma variável declarada com `var` fica acessível em toda a função onde foi declarada, independentemente de onde a declaração ocorreu dentro da função **(hoisting)**.
 
 ### Sintaxe
 
-<Example language="js" filename="var-sintaxe.js" />
+```js
+var nome = "Kevin";
+var idade = 25;
+```
 
-### Explicação:
+<Admonition type="note" title="Nota">
+  Quando se declara uma variável `var` é como se sua declaração fosse movidas para o topo do escopo durante a execução, mas a atribuição de valor permanece no local onde foi escrita. Também chamadamos popularmente de ***"Variável Global"***
 
-- **Escopo**: O var é escopado à função onde foi declarado ou ao contexto global.
-- **Redeclaração**: Permite redeclarações da mesma variável.
-- **Hoisting**: As declarações com var são movidas para o topo do escopo durante a execução, mas a atribuição de valor permanece no local onde foi escrita.
+  <h2>Exemplo</h2>
+  <h3>Como escrevemos</h3>
+  ```js
+  console.log(numero); // undefined
+  numero = 10;
+  console.log(numero); // 10
+  var numero = 5; // Declarando a variável numero e atribuindo 5 a ela
+  ```
+  <h3>Como o interpretador lê</h3>
+  ```js
+  var numero;      // A declaração de 'numero' é elevada para o topo do escopo (hoisting).
+  console.log(numero); // Aqui a variável já foi declarada, mas ainda não tem valor, então é 'undefined'.
+  numero = 10;     // Agora atribuímos 10 à variável.
+  console.log(numero); // O valor da variável é 10.
+  numero = 5;      // Agora atribuímos 5 à variável.
+  ```
+</Admonition>
 
-### Exemplo
-
-<Example language="js" filename="var-exemplo.js" />
+<Admonition type="warning" title="Aviso">
+  Hoje em dia, evitamos o uso de `var` porque ele tem comportamentos imprevisíveis, como <u>hoisting</u> e <u>escopo de função</u> **(não respeita o escopo de bloco)**, o que pode causar bugs difíceis de rastrear.
+</Admonition>
 
 ## Let
 
-O let foi introduzido no ECMAScript 2015 (ES6) e corrige vários problemas associados ao var. Ele tem escopo de bloco, ou seja, limitado ao bloco {} onde foi declarado.
+O `let` foi introduzido no ECMAScript 2015 (ES6) e corrige vários problemas associados ao var.
+
+A declaração `let` usada para criar variáveis com **escopo de bloco**, o que significa que a variável só é acessível dentro do bloco onde foi declarada. Diferente de `var`, `let` não permite a redeclaração da mesma variável no mesmo escopo.
 
 ### Sintaxe
 
-<Example language="js" filename="let-sintaxe.js" />
+```js
+// Sintaxe básica do let
+let nome = "Kevin"; // Declarando a variável nome e atribuindo "Kevin" a ela
+let idade = 25; // Declarando a variável idade e atribuindo 25 a ela
+console.log(nome); // Kevin
+nome = "João"; // Atribundo "João" a variável nome
+console.log(nome); // João
+```
 
-### Explicação:
-
-- **Escopo**: Escopado ao bloco onde foi declarado.
-- **Redeclaração**: Não permite redeclarações dentro do mesmo escopo.
-- **Hoisting**: As declarações com let são movidas para o topo do escopo, mas não podem ser usadas antes da linha onde foram declaradas no código.
-
-#### Alguns conceitos como "if" você verá mais a frente nesse curso. Não se preocupe com esses termos agora, foque apenas em indentificar a funcionalidade das variáveis nesse momento.
-
-### Exemplo
-
-<Example language="js" filename="let-exemplo.js" />
 
 ## Const
 
-A palavra-chave const também foi introduzida no ES6. Ela é usada para declarar variáveis que não podem ser reatribuídas após a inicialização. No entanto, isso não significa que o valor é imutável, pois objetos e arrays podem ser alterados.
+O `const` também foi introduzida no ES6. Ela é usada para declarar variáveis que não podem ser reatribuídas após a inicialização. No entanto, isso não significa que o valor é imutável, pois **objetos** e **arrays** podem ser alterados.
 
 ### Sintaxe
 
-<Example language="js" filename="const-sintaxe.js" />
+```js
+const nome = 'Kevin';
+console.log(nome); // Kevin
+```
 
-### Explicação:
+<Admonition type="info" >
+  Alguns conceitos como "objetos" e "arrays" você verá mais a frente nesse curso. Não se preocupe com esses termos agora, foque apenas em indentificar a funcionalidade das variáveis nesse momento.
+</Admonition>
 
-- **Escopo**: Assim como let, const é escopado ao bloco onde foi declarado.
-- **Imutabilidade**: Não permite a reatribuição do valor após a inicialização.
-- **Hoisting**: Segue as mesmas regras de let.
+<Admonition type="tip" title="Dica">
+  - Preferimos usar `let` e `const` porque:
+    - `let` tem escopo de bloco e não sofre de <u>hoisting</u> da mesma maneira que `var`.
+    - `const` garante que o valor não será reatribuído, tornando o código mais previsível e seguro.
 
-#### Alguns conceitos como "Objetos" e "Arrays" você verá mais a frente nesse curso. Não se preocupe com esses termos agora, foque apenas em indentificar a funcionalidade das variáveis nesse momento.
+    Essas opções tornam o código mais claro e menos propenso a erros.
 
-### Exemplo
-
-<Example language="js" filename="const-exemplo.js" />
-
-import Admonition from "@theme/Admonition";
-
-<Admonition type="info" title="Considerações Importantes">
-  - **Uso de let vs const**:<br />
+  - `let` vs `const`:<br />
   Sempre que possível, prefira usar `const`, pois garante que o valor não será
   reatribuído. Use `let` apenas quando precisar de uma variável cujo valor será
   alterado.
-
-  - **Escopo de Bloco**:<br />
-  Tanto `let` quanto `const` respeitam o escopo de bloco, ou seja, são limitados
-  ao `{}` em que foram declarados. Isso previne problemas comuns com o `var`,
-  como variáveis que “vazam” para fora de loops ou funções.
-
-  - **Hoisting com let e const**:<br/>
-  Apesar de serem içadas, as variáveis declaradas com `let` e `const`
-  não podem ser usadas antes de sua declaração.
-  
-  - **Mutabilidade de const**:<br/>
-  Lembre-se de que `const` garante que o valor não será reatribuído, mas o
-  conteúdo de objetos e arrays pode ser alterado.
-</Admonition>
+</Admonition >
