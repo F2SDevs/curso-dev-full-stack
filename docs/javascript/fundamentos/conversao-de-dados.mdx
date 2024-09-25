@@ -1,0 +1,96 @@
+---
+title: Conversão de Dados
+sidebar_label: Conversão de Dados
+sidebar_position: 4
+---
+
+import Example from "@site/src/components/Example";
+
+## Explicação Conceitual
+
+Conversão de dados, ou casting, é o processo de transformar um tipo de dado em outro. Em JavaScript, podemos realizar conversões de forma explícita ou implícita. Existem três tipos principais de conversões: para número, para string e para booleano.
+
+## Conversão para Número
+
+Quando precisamos transformar outros tipos de dados em números, podemos usar métodos específicos ou confiar em conversões implícitas feitas pelo JavaScript.
+
+### Sintaxe
+
+<Example language="js" filename="conversao-para-numero-sintaxe.js" />
+
+### Explicação:
+
+- **parseInt()**: Converte uma string em um número inteiro. Ignora caracteres não numéricos após os dígitos iniciais.
+- **parseFloat()**: Converte uma string em um número de ponto flutuante.
+- **Number()**: Converte strings e outros tipos de dados diretamente em um número, incluindo NaN se a conversão falhar.
+
+### Exemplo
+
+<Example language="js" filename="conversao-para-numero-exemplo.js" />
+
+## Conversão para String
+
+Transformar números e outros tipos de dados em strings pode ser útil ao exibir valores em interfaces de usuário ou logs.
+
+### Sintaxe
+
+<Example language="js" filename="conversao-para-string-sintaxe.js" />
+
+### Explicação:
+
+- **String()**: Converte qualquer valor diretamente para uma string.
+- **toString()**: Método chamado em variáveis numéricas, booleanas ou objetos para convertê-los em strings.
+
+### Exemplo
+
+<Example language="js" filename="conversao-para-string-exemplo.js" />
+
+## Conversão para Booleano
+
+Em JavaScript, valores podem ser convertidos para booleanos, onde qualquer valor pode ser avaliado como `true` ou `false`.
+
+### Valores que são **false**:
+
+- `false`
+- `0`
+- `""` (string vazia)
+- `null`
+- `undefined`
+- `NaN`
+
+### Exemplo
+
+<Example language="js" filename="conversao-para-booleano-exemplo.js" />
+
+### Explicação:
+
+A conversão booleana ocorre frequentemente em condições (ex: em estruturas de controle como `if`). O JavaScript automaticamente converte o valor para um booleano, onde certos valores são considerados falsos (falsy) e todos os outros são considerados verdadeiros (truthy).
+
+## Conversão Implícita
+
+O JavaScript pode realizar conversões automáticas, conhecidas como coerção de tipos, quando tenta operar com diferentes tipos de dados.
+
+### Exemplo
+
+<Example language="js" filename="conversao-implicita-exemplo.js" />
+
+### Explicação:
+
+- Quando usamos operadores como `+` com strings e números, o JavaScript pode converter automaticamente os números em strings.
+- Comparações como `==` também podem realizar conversões implícitas, ao contrário de `===`, que não permite coerção de tipos.
+
+import Admonition from "@theme/Admonition";
+
+<Admonition type="info" title="Considerações Importantes">
+  - **parseInt vs Number**: `parseInt` ignora caracteres não numéricos após os
+  primeiros dígitos, enquanto `Number` tenta converter a string inteira. 
+  - **Evitando Coerção de Tipos**:
+   Para evitar resultados inesperados, prefira
+  sempre usar `===` ao invés de `==` nas comparações. 
+  - **Conversão Automática**: 
+  A conversão automática de tipos pode causar comportamentos
+  estranhos, como `"5" + 1` resultando em `"51"`. 
+  - **Conversão Explícita**:
+   Para evitar erros, é uma boa prática usar métodos de conversão explícitos como
+  `Number()`, `String()` ou `Boolean()` quando necessário.
+</Admonition>

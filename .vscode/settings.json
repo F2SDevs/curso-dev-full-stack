@@ -1,5 +1,5 @@
 {
   "javascript.validate.enable": false,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.defaultFormatter": "unifiedjs.vscode-mdx",
   "editor.formatOnSave": true
 }
