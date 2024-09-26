@@ -7,116 +7,112 @@ sidebar_position: 3
 import Example from "@site/src/components/Example";
 import Admonition from "@theme/Admonition";
 
-## Explicação Conceitual
 
-JavaScript é uma linguagem dinâmica, onde o tipo de dado de uma variável é determinado durante a execução. Aqui estão os principais tipos de dados primitivos em JavaScript:
+JavaScript é uma linguagem dinâmica, onde o tipo de dado de uma variável é determinado durante a execução. Aqui veremos os principais tipos de dados primitivos.
 
 ## String
 
-Uma string é uma sequência de caracteres usada para representar texto. Strings podem ser delimitadas por aspas simples (`'`) ou duplas (`"`).
+Uma `string` é uma sequência de caracteres usada para representar texto. Strings podem ser delimitadas por aspas simples `'` ou duplas `"`.
 
 ### Sintaxe
 
-<Example
-language="js"
-filename="string-sintaxe.js"
-/>
+```js
+const saudacao = 'Olá, mundo!';
+console.log(saudacao); // Saída: "Olá, mundo!"
 
-### Explicação
 
-- **String** é usada para armazenar e manipular texto.
-- **Concatenação** em JavaScript é o processo de unir duas ou mais strings (ou outros valores) em uma única string. Isso pode ser feito usando o operador de adição (+) ou o método concat().
-- Além de concatenar strings com o operador `+` você pode concatenar com templates literals usando crases, cifrão e chaves (`` ` ${} ` ``).
-
-### Exemplo
-
-<Example
-language="js"
-filename="string-exemplo.js"
-/>
+const mensagem = "Como você está?";
+console.log(saudacao); // Saída: "Como você está?"
+```
 
 ## Number
 
-Em JavaScript, o tipo `Number` inclui tanto números inteiros quanto de ponto flutuante (decimais).
+O `number` inclui tanto números inteiros quanto fracionados.
 
 ### Sintaxe
 
-{" "}
-<Example language="js" filename="number-sintaxe.js" />
 
-### Explicação
+```js
+const idade = 25; // inteiro
+console.log(idade); // Saída: 25
 
-- O tipo `Number` pode representar tanto valores inteiros quanto fracionados.
-- A função `typeof` pode ser usada para verificar o tipo de uma variável.
 
-### Exemplo
-
-<Example
-language="js"
-filename="number-exemplo.js"
-/>
+const preco = 19.99; // fracionado
+console.log(preco); // Saída 19.99
+```
 
 ## Boolean
 
-Um tipo booleano só pode ter dois valores: `true` ou `false`.
+O `booleano` só pode ter dois valores: `true` ou `false`.<br/>
+Eles são comumente usadas em condições para controle de fluxo e loops.
 
 ### Sintaxe
 
-<Example
-language="js"
-filename="boolean-sintaxe.js"
-/>
+```js
+let online = true;
+console.log(online); // Saída: true
 
-### Explicação
-
-- Variáveis booleanas são comumente usadas para controle de fluxo, como em condições de `if` e loops.
-
-Alguns conceitos como "if" e "loop" você verá mais a frente nesse curso. Não se preocupe com esses termos agora, foque apenas em indentificar a funcionalidade dos tipos de dados nesse momento.
-
-### Exemplo
-
-<Example language="js" filename="boolean-exemplo.js" />
+online = false
+console.log(online);  // Saída: false
+```
 
 ## Null
 
-`null` é um valor que representa "nenhum valor" ou "vazio". Ele é explicitamente atribuído a uma variável.
+O `null` é um valor que representa "**nenhum valor**" ou "**vazio**".<br/>
+Ele deve ser atribuído intencionalmente para indicar que uma variável não tem um valor.
 
 ### Sintaxe
 
-<Example language="js" filename="null-sintaxe.js" />
-
-### Explicação
-
-- `null` é um valor que deve ser atribuído intencionalmente para indicar que uma variável não tem um valor.
-
-### Exemplo
-
-<Example language="js" filename="null-exemplo.js" />
+```js
+let carro = null;
+console.log(carro); // Saída: null
+```
 
 ## Undefined
 
-`undefined` significa que uma variável foi declarada, mas ainda não foi atribuído um valor a ela.
+O `undefined` é o tipo padrão de variáveis que foram declaradas mas nenhum valor foi atribuída a elas.
 
 ### Sintaxe
 
-<Example language="js" filename="undefined-sintaxe.js" />
+```js
+let produto; //A variável declarada
+console.log(produto); // Output: undefined
+```
 
-### Explicação
+<Admonition type="note" title="Nota">
+  <h2>Considerações Importantes</h2>
 
-- Uma variável é `undefined` se foi declarada, mas não inicializada.
-- `undefined` é o valor padrão de variáveis em JavaScript antes de serem atribuídas.
+  - **Diferença entre null e undefined**:<br/>
+    O `null` é explicitamente atribuído, enquanto `undefined` significa que a variável ainda não foi inicializada.
+  
+  - **Coerção de Tipo**:<br/>
+    JavaScript realiza coerção de tipo automática, por exemplo, ao somar um `number` e uma `string`, o `number` será convertido em `string`.
 
-### Exemplo
 
-<Example language="js" filename="undefined-exemplo.js" />
+  - **Valores False**:<br/>
+    Em condicionais, além de `false`, os seguintes valores são considerados `false`:<br/>
+    `0` (number zero), `""` (string vazia), `null`, `undefined`, e `NaN`.
 
-<Admonition type="info" title="Considerações Importantes">
-  - **Diferença entre null e undefined**: `null` é explicitamente atribuído,
-  enquanto `undefined` significa que a variável ainda não foi inicializada. -
-  **Coerção de Tipo**: JavaScript realiza coerção de tipo automática, por
-  exemplo, ao somar um número e uma string, o número será convertido em string.
-  - **Verificação de Tipo**: Use `typeof` para verificar o tipo de uma variável.
-  - **Valores Falsy**: Além de `false`, os seguintes valores são considerados
-  "falsy" (avaliam como falso): `0`, `""` (string vazia), `null`, `undefined`, e
-  `NaN`.
+  - **Verificação de Tipo**:<br/>
+    Podemos usar `typeof` para verificar o tipo de uma variável. Exemplo
+
+    ```js
+    let value;
+    console.log(typeof value); // Saída: "undefined"
+
+    value = 'value';
+    console.log(typeof value); // Saída: "string"
+
+    value = 1;
+    console.log(typeof value); // Saída: "number"
+
+    value = 1.90;
+    console.log(typeof value); // Saída: "number"
+
+    value = true;
+    console.log(typeof value); // Saída: "boolean"
+
+    value = null;
+    console.log(typeof value); // Saída: "null"
+    ```
 </Admonition>
