@@ -1,0 +1,148 @@
+---
+title: Operadores
+sidebar_label: Operadores
+sidebar_position: 5
+---
+
+import Example from "@site/src/components/Example";
+
+## Explicação Conceitual
+
+Operadores são símbolos ou palavras-chave que permitem realizar operações em variáveis e valores. Em JavaScript, temos diversos tipos de operadores, como aritméticos, relacionais, lógicos e de atribuição.
+
+## Operadores Aritméticos
+
+
+Os operadores aritméticos são usados para executar operações matemáticas básicas, como adição, subtração, multiplicação, divisão e potenciação (representada por "**"). Além disso, outros operadores como módulo (resto da divisão), incremento e decremento, que não são tão comuns no dia a dia, serão detalhados.
+
+#### Módulo ou Resto da Divisão (%):
+
+O operador ``%`` mostra quanto sobra quando dividimos um número por outro. Por exemplo ``5 % 2 = 1``, porque se eu dividir 5 por 2 sobra 1 (porque "2" cabe 2 vezes em 5, e sobra 1).
+
+
+#### Incremento(++):
+
+O operador "++" aumenta o valor de uma variável em 1.
+Por exemplo, se você tem ``let idade = 1``; e depois coloca ``idade++``, o valor de idade se torna 2. É como dizer: "Variável, aumente esse número em 1!"
+
+
+#### Decremento (--):
+
+O operador "--" segue a mesma lógica do de incremento, só que nesse caso subtraíndo. Ele diminui o valor de uma variável em 1. Exemplo, se você tem let ``peso = 60``; e depois coloca ``peso--``, o valor de a se torna 59. É como dizer: "Variável, diminua esse número em 1!"
+
+### Tabela de Operadores Aritméticos
+
+| Operador | Descrição        | Exemplo      |
+|----------|------------------|--------------|
+| `+`      | Adição           | `5 + 2`      |
+| `-`      | Subtração        | `5 - 2`      |
+| `*`      | Multiplicação     | `5 * 2`      |
+| `**`      | Potenciação    | `5 ** 2`      |
+| `/`      | Divisão          | `5 / 2`      |
+| `%`      | Módulo (Resto da divisão)   | `5 % 2`      |
+| `++`     | Incremento       | `let a = 1; a++` |
+| `--`     | Decremento       | `let a = 1; a--` |
+
+
+
+### Exemplo
+
+```js
+// Adição
+let soma = 5 + 2;
+console.log("Adição: 5 + 2 =", soma); // 7
+
+// Subtração
+let subtracao = 5 - 2;
+console.log("Subtração: 5 - 2 =", subtracao); // 3
+
+// Multiplicação
+let multiplicacao = 5 * 2;
+console.log("Multiplicação: 5 * 2 =", multiplicacao); // 10
+
+// Potenciação
+let potenciacao = 5 ** 2;
+console.log("Potenciação: 5 ** 2 =", potenciacao); // 25
+
+// Divisão
+let divisao = 5 / 2;
+console.log("Divisão: 5 / 2 =", divisao); // 2.5
+
+// Módulo (Resto da divisão)
+let modulo = 5 % 2;
+console.log("Módulo: 5 % 2 =", modulo); // 1
+
+// Incremento
+let a = 1;
+a++; // a = a + 1
+console.log("Incremento: let a = 1; a++ =", a); // 2
+
+// Decremento
+let b = 1;
+b--; // b = b - 1
+console.log("Decremento: let b = 1; b-- =", b); // 0
+```
+
+## Operadores Relacionais
+
+Os operadores relacionais comparam valores e retornam um valor booleano (verdadeiro ou falso).
+
+### Tabela de Operadores Relacionais
+
+| Operador | Descrição                  | Exemplo         |
+|----------|----------------------------|-----------------|
+| `==`     | Igual a                    | `5 == 5`        |
+| `===`    | Estritamente igual a       | `5 === 5`       |
+| `!=`     | Diferente de               | `5 != 2`        |
+| `!==`    | Estritamente diferente de  | `5 !== 2`       |
+| `>`      | Maior que                  | `5 > 2`         |
+| `<`      | Menor que                  | `2 < 5`         |
+| `>=`     | Maior ou igual a           | `5 >= 2`        |
+| `<=`     | Menor ou igual a           | `2 <= 5`        |
+
+### Exemplo
+
+<Example language="js" filename="operadores-relacionais-exemplo.js" />
+
+## Operadores Lógicos
+
+Os operadores lógicos são usados para combinar expressões condicionais.
+
+### Tabela de Operadores Lógicos
+
+| Operador | Descrição               | Exemplo            |
+|----------|-------------------------|--------------------|
+| `&&`     | E lógico (AND)           | `true && false`    |
+| `||`     | Ou lógico (OR)           | `true || false`    |
+| `!`      | Não lógico (NOT)         | `!true`            |
+
+### Exemplo
+
+<Example language="js" filename="operadores-logicos-exemplo.js" />
+
+## Operadores de Atribuição
+
+Os operadores de atribuição são usados para atribuir valores a variáveis.
+
+### Tabela de Operadores de Atribuição
+
+| Operador | Descrição                         | Exemplo           |
+|----------|-----------------------------------|-------------------|
+| `=`      | Atribuição                        | `x = 5`           |
+| `+=`     | Atribuição de adição              | `x += 5`          |
+| `-=`     | Atribuição de subtração           | `x -= 5`          |
+| `*=`     | Atribuição de multiplicação       | `x *= 5`          |
+| `/=`     | Atribuição de divisão             | `x /= 5`          |
+| `%=`     | Atribuição de módulo              | `x %= 5`          |
+
+### Exemplo
+
+<Example language="js" filename="operadores-atribuicao-exemplo.js" />
+
+import Admonition from "@theme/Admonition";
+
+<Admonition type="info" title="Considerações Importantes">
+  - **Precedência de Operadores**: Alguns operadores têm precedência sobre outros, ou seja, são executados antes em uma expressão.
+  - **Atribuição Combinada**: Operadores de atribuição como `+=` são atalhos que combinam operação e atribuição em uma única expressão.
+  - **Curto-circuito em Operadores Lógicos**: Operadores lógicos podem evitar a avaliação de parte de uma expressão se o resultado já puder ser determinado (por exemplo, `false && ...` sempre será `false`).
+</Admonition>
