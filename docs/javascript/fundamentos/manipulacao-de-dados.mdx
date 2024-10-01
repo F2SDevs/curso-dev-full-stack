@@ -1,0 +1,159 @@
+---
+title: Manipulação de Dados
+sidebar_label: Manipulação de Dados
+sidebar_position: 7
+---
+
+import Admonition from "@theme/Admonition";
+
+
+## Explicação Conceitual
+
+A manipulação de dados refere-se ao conjunto de operações realizadas sobre dados para transformá-los, organizá-los ou analisá-los de maneira útil e significativa. É frequentemente realizada usando funções e métodos que permitem que os desenvolvedores interajam com diferentes tipos de dados, como strings, números e objetos de data. 
+
+## Manipulação de Strings
+
+### Transformações
+
+As transformações permitem alterar o texto, como torná-lo todo em maiúsculas ou minúsculas.
+
+### Exemplo
+
+```js
+let texto = "JavaScript";
+console.log(texto.toUpperCase()); // "JAVASCRIPT"
+console.log(texto.toLowerCase()); // "javascript"
+```
+
+- `toUpperCase()`: Função que transforma todas as letras para maiúsculas.
+- `toLowerCase()`: Função que transforma todas as letras para minúsculas.
+
+
+## Manipulação de Data
+
+A manipulação de data é essencial para a formatação e o cálculo de datas. Abaixo, exploraremos as principais funções e métodos relacionados à data.
+
+## Criando uma Data
+
+### Exemplo
+
+
+```js
+// O objeto Date vai obter data e hora atual
+let dataAtual = new Date();
+console.log(dataAtual);
+```
+
+- O que está acontecendo aqui?
+Estamos criando uma nova data chamada novaData. Quando usamos `new Date()`, estamos dizendo ao JavaScript para pegar a data e hora atuais. Por exemplo, se hoje é 30 de setembro de 2024, novaData agora tem essa informação.
+
+## Formatando Datas
+
+### Exemplo
+
+```js
+// Cria um objeto Date com a data e hora atuais
+let data = new Date();
+
+// Define as opções de formatação: ano numérico, mês por extenso e dia numérico
+let opcoes = { year: 'numeric', month: 'long', day: 'numeric' };
+
+// Exibe a data formatada no padrão brasileiro (dd de mês por extenso de yyyy)
+console.log(data.toLocaleDateString('pt-BR', opcoes)); // Saída: data de hoje
+```
+
+- `let data = new Date()`: A variável data armazena um objeto Date, que representa a data e a hora atuais no momento em que o código é executado.
+
+- `let opcoes = { year: 'numeric', month: 'long', day: 'numeric' }`: aqui, criamos um objeto chamado opcoes para definir como a data será formatada.
+- `year: 'numeric'`: Exibe o ano completo com 4 dígitos (ex: 2024).
+- `month: 'long'`: Exibe o mês por extenso (ex: outubro).
+- `day: 'numeric'`: Exibe o dia do mês em formato numérico (ex: 1, 15, 31).
+- `console.log(data.toLocaleDateString('pt-BR', opcoes));`: A função toLocaleDateString() formata a data conforme a localidade e as opções fornecidas.
+- `'pt-BR'`: Define que a data será formatada no padrão brasileiro (dia/mês/ano).
+- `opcoes:` Especifica que a data será exibida com o ano numérico, o mês por extenso e o dia numérico.
+- O resultado impresso será algo como: "30 de setembro de 2024", dependendo da data atual.
+
+
+## Manipulando Datas
+
+### Exemplo
+
+
+```js
+// Adicionando dias a uma data
+let novaData = new Date();
+novaData.setDate(novaData.getDate() + 5);
+console.log(novaData); // Exibe a nova data após adicionar 5 dias
+```
+
+- `let novaData = new Date()`: estamos pegando a data e hora atuais.
+
+- `novaData.getDate()`: esse comando pergunta à novaData qual é o dia do mês atual. Se for 30 de setembro, o resultado será 30.
+- **Por que estamos somando 5?** Estamos dizendo que queremos adicionar 5 dias a essa data. Então, se começamos com o dia 30, ao somar 5, teremos dia 5 de outubro.
+- `setDate(...)`: é como um ajuste que diz ao JavaScript: "Agora, quero que a data seja o dia que você me deu." Se você passar 35, o JavaScript sabe que isso não faz sentido em setembro, então ele automaticamente muda para o próximo mês e ajusta a data para 5 de outubro de 2024.
+console.log(novaData);
+
+- `console.log(novaData)`: vai mostrar a nova data que calculamos depois de adicionar os 5 dias.
+
+
+
+## Manipulando Math
+
+A manipulação de números é uma parte importante do JavaScript. O objeto Math fornece funções e constantes matemáticas.
+
+### Funções Matemáticas Básicas
+
+### Exemplo
+
+```js
+// Exemplo de uso de funções matemáticas
+let numero = 9;
+console.log(Math.sqrt(numero)); // Raiz quadrada: 3
+console.log(Math.pow(2, 3)); // Potência: 8
+```
+
+
+- `let numero = 9`: variável chamada numero recebendo 9. 
+
+- `Math.sqrt(numero)`: é uma função que calcula a raiz quadrada do valor armazenado na variável numero.
+Como numero é 9, a raiz quadrada de 9 é 3. Portanto, quando usamos console.log() para exibir o resultado, ele imprime 3 no console.
+
+
+- `Math.pow(2, 3)`: é uma função que calcula a potência. Neste caso, estamos calculando 
+2 elevado a 3(ou 2 ** 3). O resultado de 2 ** 3 é 2 x 2 x 2, que dá 8. Assim, ao usar console.log(), o número 8 é impresso no console.
+
+
+### Gerando Números Aleatórios
+
+### Exemplo
+
+```js
+// Gerando um número aleatório entre 0 e 1
+let numeroAleatorio = Math.random();
+console.log(numeroAleatorio);
+```
+
+- `Math.random()`: gera um número aleatório entre 0 e 1
+- `console.log(numeroAleatorio)`: Vai imprimir na tela um número aleatório, pois está exibindo a variável numeroAleatorio.
+
+### Arredondamento de Números
+
+### Exemplo
+
+```js
+Copy code
+// Arredondando números
+console.log(Math.round(4.7)); // Saída 5
+console.log(Math.floor(4.7)); // Saída 4
+console.log(Math.ceil(4.1));  // Saída 5
+```
+
+- ` Math.round()`: arredonda o número para o inteiro mais próximo, nesse caso, 5.
+- `Math.floor()` arredonda para baixo.
+
+
+<Admonition type="info" title="Dicas de Uso">
+ - **Trabalhando com Datas**: Sempre verifique o fuso horário ao trabalhar com datas, especialmente em aplicações que envolvem múltiplas regiões. 
+ - **Cuidado com Números Aleatórios**: O `Math.random()` gera números entre 0 (inclusive) e 1 (exclusive). Para um intervalo específico, multiplique pelo intervalo desejado. 
+ - **Performance**: Funções matemáticas podem ser custosas em termos de desempenho, especialmente em loops, então use-as com sabedoria.
+</Admonition>
