@@ -5,6 +5,8 @@ sidebar_position: 5
 ---
 
 import Example from "@site/src/components/Example";
+import Admonition from "@theme/Admonition";
+
 
 ## Explicação Conceitual
 
@@ -73,19 +75,19 @@ let modulo = 5 % 2;
 console.log("Módulo: 5 % 2 =", modulo); // 1
 
 // Incremento
-let a = 1;
-a++; // a = a + 1
-console.log("Incremento: let a = 1; a++ =", a); // 2
+let idade = 1;
+idade++; // idade = idade + 1
+console.log("Incremento: let a = 1; a++ =", idade); // 2
 
 // Decremento
-let b = 1;
-b--; // b = b - 1
-console.log("Decremento: let b = 1; b-- =", b); // 0
+let peso = 1;
+peso--; // peso = peso - 1
+console.log("Decremento: let b = 1; b-- =", peso); // 59
 ```
 
 ## Operadores Relacionais
 
-Os operadores relacionais comparam valores e retornam um valor booleano (verdadeiro ou falso).
+Os operadores relacionais comparam valores e retornam um valor booleano (verdadeiro ou falso). Por exemplo: 5 `>` 3 = true. Nesse caso o `>`(maior que) é o operador relacional. Segue a tablea de operadores relacionais.
 
 ### Tabela de Operadores Relacionais
 
@@ -100,29 +102,134 @@ Os operadores relacionais comparam valores e retornam um valor booleano (verdade
 | `>=`     | Maior ou igual a           | `5 >= 2`        |
 | `<=`     | Menor ou igual a           | `2 <= 5`        |
 
+<Admonition type="note" title="Nota">
+- **Maior que** `(>)`: Verifica se o valor à esquerda é maior que o valor à direita.
+Exemplo: 5 `>` 3 → true
+
+- **Menor que** ``<``: Verifica se o valor à esquerda é menor que o valor à direita.
+Exemplo: 2 `<` 4 → true
+
+- **Maior ou igual a** `(>=)`: Verifica se o valor à esquerda é maior ou igual ao valor à direita.
+Exemplo: 5 `>=` 5 → true
+
+- **Menor ou igual a** `(<=)`: Verifica se o valor à esquerda é menor ou igual ao valor à direita.
+Exemplo: 3 `<=` 3  true
+
+- **Igual a** `(==)`: Compara se os valores dos dois operandos são iguais (faz a conversão de tipos, se necessário).
+Exemplo: 5 `==` '5' → true (porque há conversão de tipos)
+
+- **Estritamente igual a** `(===)`: Compara se os valores e tipos dos dois operandos são iguais (não faz conversão de tipos).
+Exemplo: 5 `===` '5' → false (porque os tipos são diferentes)
+
+- **Diferente de** `(!=)`: Verifica se os valores dos dois operandos são diferentes (faz a conversão de tipos, se necessário).
+Exemplo: 5 `!=` '5' → false (porque os valores são considerados iguais)
+
+- **Estritamente diferente de** `(!==)`: Verifica se os valores ou tipos dos dois operandos são diferentes (não faz conversão de tipos).
+Exemplo: 5 `!==` '5' → true (porque os tipos são diferentes)
+
+</Admonition>
+
 ### Exemplo
 
-<Example language="js" filename="operadores-relacionais-exemplo.js" />
+```js
+// Igual a
+console.log(5 == 5); // true
+
+// Estritamente igual a
+console.log(5 === 5); // true
+
+// Diferente de
+console.log(5 != 2); // true
+
+// Estritamente diferente de
+console.log(5 !== 2); // true
+
+// Maior que
+console.log(5 > 2); // true
+
+// Menor que
+console.log(2 < 5); // true
+
+// Maior ou igual a
+console.log(5 >= 2); // true
+
+// Menor ou igual a
+console.log(2 <= 5); // true
+```
+
 
 ## Operadores Lógicos
 
 Os operadores lógicos são usados para combinar expressões condicionais.
 
+- Operador && (E - AND)
+Descrição: O operador && é usado para combinar duas expressões booleanas. Ele retorna true apenas se ambas as expressões forem verdadeiras.
+Comportamento:
+Se o primeiro operando for false, o resultado será false (não precisa avaliar o segundo operando).
+Se o primeiro operando for true, o resultado dependerá do segundo operando.
+
+- Operador || (Ou - OR)
+Descrição: O operador || é usado para combinar duas expressões booleanas. Ele retorna true se pelo menos uma das expressões for verdadeira.
+Comportamento:
+Se o primeiro operando for true, o resultado será true (não precisa avaliar o segundo operando).
+Se o primeiro operando for false, o resultado dependerá do segundo operando.
+
+- Operador ! (Não - NOT)
+Descrição: O operador ! é um operador unário que inverte o valor booleano de uma expressão. Se a expressão for true, ele retorna false, e vice-versa.
+Comportamento:
+O operador ! sempre retornará o oposto do valor original.
+
 ### Tabela de Operadores Lógicos
 
 | Operador | Descrição               | Exemplo            |
 |----------|-------------------------|--------------------|
-| `&&`     | E lógico (AND)           | `true && false`    |
-| `||`     | Ou lógico (OR)           | `true || false`    |
-| `!`      | Não lógico (NOT)         | `!true`            |
+| `&&`     | E (AND)           | `true && false`    |
+| `||`     | Ou (OR)           | `true || false`    |
+| `!`      | Não (NOT)         | `!true`            |
 
 ### Exemplo
 
-<Example language="js" filename="operadores-logicos-exemplo.js" />
+```js
+// Exemplos de operadores lógicos
+
+// E (AND)
+let a = true;
+let b = false;
+console.log(a && b); // false
+
+// Ou (OR)
+let c = true;
+let d = false;
+console.log(c || d); // true
+
+// Não (NOT)
+let e = true;
+console.log(!e); // false
+```
 
 ## Operadores de Atribuição
 
-Os operadores de atribuição são usados para atribuir valores a variáveis.
+
+Os operadores de atribuição são usados em programação para atribuir valores a variáveis. Eles simplificam a forma como você define ou atualiza o valor de uma variável. O operador de atribuição mais comum é o sinal de igual (=), mas existem vários operadores de atribuição que combinam a atribuição com outras operações aritméticas ou lógicas.
+
+
+- = (Atribuição Simples):
+Atribui o valor do operando da direita à variável à esquerda.
+
+- += (Atribuição com Adição):
+Adiciona o valor do operando da direita à variável à esquerda e atribui o resultado à variável. 
+
+- -= (Atribuição com Subtração):
+Subtrai o valor do operando da direita da variável à esquerda e atribui o resultado à variável.
+
+- *= (Atribuição com Multiplicação):
+Multiplica a variável à esquerda pelo valor do operando da direita e atribui o resultado à variável.
+
+- /= (Atribuição com Divisão):
+Divide a variável à esquerda pelo valor do operando da direita e atribui o resultado à variável.
+
+- %= (Atribuição com Módulo):
+Aplica o operador módulo (resto da divisão) e atribui o resultado à variável.
 
 ### Tabela de Operadores de Atribuição
 
@@ -137,12 +244,49 @@ Os operadores de atribuição são usados para atribuir valores a variáveis.
 
 ### Exemplo
 
-<Example language="js" filename="operadores-atribuicao-exemplo.js" />
+```js
+// Atribuição
+let x = 5; // x agora é 5
 
-import Admonition from "@theme/Admonition";
+// Atribuição de adição
+x += 5; // x agora é 10 (5 + 5)
+
+// Atribuição de subtração
+x -= 3; // x agora é 7 (10 - 3)
+
+// Atribuição de multiplicação
+x *= 2; // x agora é 14 (7 * 2)
+
+// Atribuição de divisão
+x /= 7; // x agora é 2 (14 / 7)
+
+// Atribuição de módulo
+x %= 2; // x agora é 0 (resto de 2 dividido por 2)
+```
+
+ **A ordem de precedência de operadores** 
+
+ Assim como na matemática, em Javascript existe uma ordem de precedência de operadores. Tal precedência determina em que ordem os operadores são avaliados em expressões. Aqui está uma lista da ordem de precedência, do mais alto para o mais baixo:
+
+#### Operadores Aritméticos
+- Ordem de precedência `** > * / % > + -`
+
+#### Operadores relacionais
+- Ordem de precedência `> < >= <=`
+
+#### Operadores lógicos:
+
+- ***Ordem de precedência*** `! > && > ||`
+
+#### Atribuição:
+
+- ***Ordem de precedência*** `= += -= *= /= %= <<= >>= >>>=`
+
+#### Ordem geral de precedência dos operadores
+
+- Operdaores aritimesticos> Operdaores relacionais> Operadores lógicos
 
 <Admonition type="info" title="Considerações Importantes">
-  - **Precedência de Operadores**: Alguns operadores têm precedência sobre outros, ou seja, são executados antes em uma expressão.
   - **Atribuição Combinada**: Operadores de atribuição como `+=` são atalhos que combinam operação e atribuição em uma única expressão.
   - **Curto-circuito em Operadores Lógicos**: Operadores lógicos podem evitar a avaliação de parte de uma expressão se o resultado já puder ser determinado (por exemplo, `false && ...` sempre será `false`).
 </Admonition>
