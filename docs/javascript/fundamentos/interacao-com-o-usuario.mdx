@@ -1,0 +1,48 @@
+---
+title: Interação com o Usuário
+sidebar_label: Interação com o Usuário
+sidebar_position: 6
+---
+
+import Admonition from "@theme/Admonition";
+
+## Introdução
+
+A interação com o usuário é fundamental no desenvolvimento web. O JavaScript fornece métodos simples para se comunicar com os usuários através de caixas de diálogo. Neste documento, abordaremos três métodos principais: `window.alert()`, `window.confirm()`, e `window.prompt()`.
+
+## window.alert()
+
+O método `window.alert()` exibe uma caixa de diálogo com uma mensagem e um botão "OK". É utilizado para informar o usuário sobre algo importante. (imagem)
+
+### Sintaxe
+
+```js
+// Exemplo de uso do window.alert()
+window.alert("Bem-vindo ao nosso site!");
+```
+
+## window.confirm()
+
+O método window.confirm() exibe uma caixa de diálogo que solicita confirmação do usuário. Esta caixa possui dois botões: "OK" e "Cancelar". O método retorna true se o usuário clicar em "OK" e false se clicar em "Cancelar". (imagem)
+
+```js
+let resultado = window.confirm("Deseja continuar?");
+```
+
+## window.prompt()
+
+O método window.prompt() solicita ao usuário que insira uma informação. Ele exibe uma caixa de diálogo com um campo de entrada, um botão "OK" e um botão "Cancelar". O valor inserido pelo usuário é retornado como uma string. (imagem)
+
+Sintaxe
+```js
+let entrada = window.prompt("Por favor, insira seu nome:");
+```
+
+
+<Admonition type="info" title="Dicas de Uso"> 
+- **Uso Moderado**: Embora esses métodos sejam úteis, evite usar `alert`, `confirm`, e `prompt` em excesso, pois podem interromper a experiência do usuário. 
+- **Alternativas Modernas**: Considere usar bibliotecas de modais para uma experiência de usuário mais fluida. 
+- **Validação**: Sempre verifique o que o usuário digitou ao usar `prompt`. Isso é importante para garantir que as informações que você recebe estejam corretas. Por exemplo, se você pede o nome do usuário, certifique-se de que ele realmente digitou um nome e não deixou em branco.
+
+
+</Admonition> 
