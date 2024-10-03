@@ -1,0 +1,115 @@
+---
+title: Tratamento de Erros
+sidebar_label: Tratamento de Erros
+sidebar_position: 16
+---
+
+import Example from "@site/src/components/Example";
+import Admonition from "@theme/Admonition";
+
+## Explicação Conceitual
+
+O tratamento de erros é uma parte fundamental da programação que permite lidar com situações inesperadas e garantir que o programa funcione corretamente, mesmo quando ocorrem problemas. O JavaScript fornece mecanismos para capturar e tratar erros, melhorando a robustez e a manutenção do código.
+
+## Adição: `try...catch`
+
+A estrutura `try...catch` é utilizada para executar um bloco de código e capturar quaisquer erros que possam ocorrer durante sua execução.
+
+### Sintaxe
+
+```js
+try {
+  // Código que pode gerar um erro
+} catch (erro) {
+  // Código para tratar o erro
+}
+```
+
+### Explicação:
+
+- **`try`**: O código que pode gerar um erro é colocado dentro do bloco `try`.
+- **`catch`**: Se um erro ocorrer no bloco `try`, o controle é transferido para o bloco `catch`, onde o erro pode ser tratado.
+
+### Exemplo
+
+```js
+try {
+  const resultado = 10 / 0; // Tentativa de divisão por zero
+  console.log(resultado);
+} catch (erro) {
+  console.error("Ocorreu um erro:", erro.message);
+}
+// Saída: Ocorreu um erro: Infinity
+```
+
+## Captura e Tratamento de Exceções
+
+O bloco `catch` recebe um parâmetro que representa o erro ocorrido, permitindo que você trate o erro de forma apropriada.
+
+### Sintaxe
+
+```js
+try {
+  // Código que pode gerar um erro
+} catch (erro) {
+  // Código para tratar o erro
+  console.error(erro); // Exibir informações sobre o erro
+}
+```
+
+### Exemplo
+
+```js
+function dividir(a, b) {
+  if (b === 0) {
+    throw new Error("Divisão por zero não é permitida.");
+  }
+  return a / b;
+}
+
+try {
+  console.log(dividir(10, 0));
+} catch (erro) {
+  console.error("Erro:", erro.message);
+}
+// Saída: Erro: Divisão por zero não é permitida.
+```
+
+## Bloco `finally` para Execução Garantida
+
+O bloco `finally` é opcional e é executado após os blocos `try` e `catch`, independentemente de um erro ter ocorrido ou não. Isso é útil para realizar tarefas de limpeza ou finalização.
+
+### Sintaxe
+
+```js
+try {
+  // Código que pode gerar um erro
+} catch (erro) {
+  // Código para tratar o erro
+} finally {
+  // Código que será executado independentemente do resultado
+}
+```
+
+### Exemplo
+
+```js
+try {
+  console.log("Tentando executar um código...");
+  throw new Error("Um erro ocorreu!");
+} catch (erro) {
+  console.error("Erro capturado:", erro.message);
+} finally {
+  console.log("Este bloco sempre será executado.");
+}
+// Saída:
+// Tentando executar um código...
+// Erro capturado: Um erro ocorreu!
+// Este bloco sempre será executado.
+```
+
+<Admonition type="info" title="Considerações Importantes">
+  - **Encadeamento de `try...catch`**: Você pode usar múltiplos blocos `try...catch` para capturar diferentes tipos de erros em diferentes partes do código.
+  - **Personalizando Erros**: Você pode lançar erros personalizados usando `throw`, o que permite uma maior flexibilidade no tratamento de exceções.
+  - **Uso de `finally`**: O bloco `finally` é ideal para liberar recursos, como fechar conexões de banco de dados ou arquivos, garantindo que essas ações ocorram independentemente do resultado da operação.
+</Admonition>
