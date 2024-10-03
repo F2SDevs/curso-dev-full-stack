@@ -1,0 +1,109 @@
+---
+title: Funções
+sidebar_label: Funções
+sidebar_position: 14
+---
+
+import Example from "@site/src/components/Example";
+import Admonition from "@theme/Admonition";
+
+## Explicação Conceitual
+
+Funções são blocos de código reutilizáveis que realizam uma tarefa específica. Elas podem receber entradas (parâmetros), processar essas entradas e retornar um resultado. Existem várias formas de declarar funções, incluindo a declaração de função, funções anônimas e arrow functions.
+
+## Declaração de Função
+
+Uma declaração de função define uma função com um nome específico. É a forma mais comum de criar funções.
+
+### Sintaxe
+
+```js
+function nomeDaFuncao(param1, param2) {
+  // corpo da função
+  return resultado;
+}
+```
+
+### Explicação:
+
+- **Nome da Função**: Identificador usado para chamar a função.
+- **Parâmetros**: Variáveis que a função pode receber como entrada.
+- **Corpo da Função**: O bloco de código que será executado quando a função for chamada.
+- **Retorno**: A palavra-chave `return` é usada para enviar um resultado da função de volta ao chamador.
+
+### Exemplo
+
+```js
+function somar(a, b) {
+  return a + b;
+}
+
+// Chamada da função
+const resultado = somar(5, 3);
+console.log(resultado); // Saída: 8
+```
+## Parâmetros e Retorno de Valores
+
+Funções podem aceitar múltiplos parâmetros e retornar valores. Isso permite que você passe dados para a função e receba resultados.
+
+### Sintaxe
+
+```js
+function nomeDaFuncao(param1 = valorPadrao) {
+  // corpo da função
+  return resultado;
+}
+```
+
+### Explicação:
+
+- **Parâmetros**: Podem ser obrigatórios ou opcionais. Se não forem passados, o valor `undefined` é atribuído.
+- **Retorno**: A função pode retornar qualquer tipo de valor, incluindo números, strings, objetos ou até mesmo outras funções.
+
+### Exemplo
+
+```js
+function nomeDaFuncao(param1 = valorPadrao) {
+  // corpo da função
+  return resultado;
+}
+```
+
+## Arrow Functions
+
+As arrow functions são uma forma mais concisa de escrever funções em JavaScript. Elas são especialmente úteis em funções que não têm seu próprio `this`.
+
+### Sintaxe
+
+```js
+const nomeDaFuncao = (param1, param2) => {
+  // corpo da função
+  return resultado;
+};
+```
+
+### Explicação:
+
+- **Sintaxe Concisa**: Não é necessário usar a palavra-chave `function`.
+- **Retorno Implícito**: Se a função tiver apenas uma expressão, você pode omitir as chaves `{}` e a palavra-chave `return`, tornando o código mais limpo.
+- **this**: As arrow functions não têm seu próprio `this`, o que pode ser útil em callbacks.
+
+### Exemplo
+
+```js
+const somar = (a, b) => a + b;
+
+// Chamada da função
+const resultado = somar(5, 3);
+console.log(resultado); // Saída: 8
+
+const quadrado = x => x * x; // Retorno implícito
+console.log(quadrado(4)); // Saída: 16
+```
+
+<Admonition type="info" title="Considerações Importantes">
+  - **Nomes de Funções**: Escolha nomes descritivos para suas funções que reflitam a tarefa que elas realizam.
+  - **Parâmetros Opcionais**: Você pode definir valores padrão para parâmetros, caso não sejam passados.
+  - **Uso de Arrow Functions**: Use arrow functions para simplificar o código, especialmente em funções curtas e callbacks.
+  - **Escopo de `this`**: Lembre-se que o `this` em arrow functions é determinado pelo contexto em que foram definidas, não pelo contexto em que são chamadas.
+</Admonition>
