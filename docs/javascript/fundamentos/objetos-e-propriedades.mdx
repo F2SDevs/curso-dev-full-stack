@@ -1,0 +1,170 @@
+---
+title: Objetos e Propriedades
+sidebar_label: Objetos e Propriedades
+sidebar_position: 15
+---
+
+import Example from "@site/src/components/Example";
+import Admonition from "@theme/Admonition";
+
+## Explicação Conceitual
+
+Objetos são uma das estruturas de dados fundamentais em JavaScript, permitindo armazenar coleções de dados e entidades mais complexas. Cada objeto é uma coleção de pares chave-valor, onde as chaves são strings e os valores podem ser de qualquer tipo, incluindo outros objetos. 
+
+## Definindo e Acessando Propriedades de Objetos
+
+Você pode definir um objeto usando a sintaxe de chaves (`{}`) e acessar suas propriedades usando a notação de ponto ou colchetes.
+
+### Sintaxe
+
+```js
+const objeto = {
+  chave1: valor1,
+  chave2: valor2,
+  // mais chaves e valores
+};
+```
+
+
+### Explicação:
+
+- **Definindo Propriedades**: Use `chave: valor` dentro das chaves para definir propriedades.
+- **Acessando Propriedades**: Utilize `objeto.chave` ou `objeto['chave']` para acessar os valores correspondentes.
+
+### Exemplo
+
+```js
+const pessoa = {
+  nome: "Kevin",
+  idade: 24,
+  cidade: "Fortaleza"
+};
+
+// Acessando propriedades
+console.log(pessoa.nome); // Saída: Kevin
+console.log(pessoa['idade']); // Saída: 24
+```
+
+## Métodos de Objetos
+
+Métodos são funções que pertencem a um objeto. Eles podem acessar e manipular as propriedades do objeto em que estão definidos.
+
+### Sintaxe
+
+```js
+const objeto = {
+  chave: valor,
+  metodo: function() {
+    // corpo da função
+  }
+};
+```
+
+### Explicação:
+
+- **Definindo Métodos**: Métodos são definidos como pares chave-valor, onde a chave é o nome do método e o valor é uma função.
+- **Chamando Métodos**: Utilize a notação de ponto para chamar métodos de um objeto.
+
+### Exemplo
+
+```js
+const carro = {
+  marca: "Toyota",
+  modelo: "Corolla",
+  ano: 2020,
+  descricao: function() {
+    return `${this.marca} ${this.modelo} (${this.ano})`;
+  }
+};
+
+// Chamando o método
+console.log(carro.descricao()); // Saída: Toyota Corolla (2020)
+```
+
+## O que é JSON?
+
+JSON (JavaScript Object Notation) é um formato leve de troca de dados que é fácil para humanos lerem e escreverem, e fácil para máquinas analisarem e gerarem. É baseado em uma sub-conjunto da linguagem JavaScript e é amplamente utilizado para transmitir dados em aplicações web.
+
+### Estrutura do JSON
+
+```js
+{
+  "chave1": "valor1",
+  "chave2": 2,
+  "chave3": {
+    "subchave": "subvalor"
+  },
+  "chave4": ["valor1", "valor2"]
+}
+```
+
+### Explicação:
+
+- **Formato**: JSON é sempre um objeto ou uma lista (array).
+- **Chaves e Valores**: Utiliza a mesma notação de chave-valor de objetos JavaScript, mas as chaves devem ser strings entre aspas duplas.
+
+### Exemplo
+
+```js
+const jsonString = '{"nome":"Maria","idade":25,"cidade":"Rio de Janeiro"}';
+
+// Convertendo JSON para objeto JavaScript
+const pessoa = JSON.parse(jsonString);
+console.log(pessoa.nome); // Saída: Maria
+
+// Convertendo objeto JavaScript para JSON
+const novoJsonString = JSON.stringify(pessoa);
+console.log(novoJsonString); // Saída: {"nome":"Maria","idade":25,"cidade":"Rio de Janeiro"}
+```
+
+## Manipulando o `package.json`
+
+O arquivo `package.json` é fundamental em projetos Node.js, pois contém informações sobre o projeto, incluindo dependências, scripts e metadados.
+
+### Estrutura do `package.json`
+
+```js
+{
+  "name": "nome-do-projeto",
+  "version": "1.0.0",
+  "description": "Descrição do projeto",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
+```
+
+
+### Explicação:
+
+- **Dependências**: Seções que especificam as bibliotecas que o projeto utiliza.
+- **Scripts**: Comandos que podem ser executados usando o npm (Node Package Manager).
+
+### Exemplo
+
+```js
+// Para adicionar uma nova dependência
+const fs = require('fs');
+
+// Lendo o arquivo package.json
+const packageJson = JSON.parse(fs.readFileSync('package.json', 'utf-8'));
+
+// Adicionando uma nova dependência
+packageJson.dependencies["mongoose"] = "^5.12.3";
+
+// Escrevendo as alterações de volta ao arquivo package.json
+fs.writeFileSync('package.json', JSON.stringify(packageJson, null, 2));
+console.log("Dependência adicionada com sucesso!");
+```
+
+
+<Admonition type="info" title="Considerações Importantes">
+  - **Objetos Aninhados**: Você pode criar objetos dentro de objetos, o que permite modelar estruturas de dados complexas.
+  - **JSON vs. Objetos JavaScript**: JSON é uma string que precisa ser analisada em um objeto JavaScript usando `JSON.parse()` e pode ser convertida em uma string usando `JSON.stringify()`.
+  - **Importância do `package.json`**: Manter um `package.json` bem estruturado facilita a colaboração e manutenção do projeto, além de ajudar a gerenciar dependências de forma eficiente.
+</Admonition>
