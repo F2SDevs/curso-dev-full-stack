@@ -1,0 +1,166 @@
+---
+title: Programação Assíncrona
+sidebar_label: Programação Assíncrona
+sidebar_position: 18
+---
+
+import Example from "@site/src/components/Example";
+import Admonition from "@theme/Admonition";
+
+
+## Explicação Conceitual
+
+A programação assíncrona permite que funções executem processos que podem levar tempo, sem bloquear a execução do restante do código. Em JavaScript, isso é especialmente útil para operações como requisições a APIs, carregamento de arquivos e outras tarefas que precisam de tempo para serem concluídas.
+
+## Promises
+
+As Promises representam um valor que estará disponível em algum momento no futuro. Elas podem estar em três estados: `pendente`, `concluída` (com sucesso), ou `rejeitada` (com erro). Usamos `resolve` e `reject` para indicar que uma Promise foi concluída com sucesso ou falhou, respectivamente.
+
+### Sintaxe
+```js
+// Exemplo básico de Promise com resolve e reject
+
+const minhaPromise = new Promise((resolve, reject) => {
+  const sucesso = true;
+
+  if (sucesso) {
+    resolve("A operação foi bem-sucedida!");
+  } else {
+    reject("A operação falhou.");
+  }
+});
+
+minhaPromise
+  .then((mensagem) => {
+    console.log(mensagem); // Executado se resolve for chamado
+  })
+  .catch((erro) => {
+    console.error(erro); // Executado se reject for chamado
+  });
+```
+
+### Explicação:
+
+- **Promise**: Representa um valor assíncrono. Cria-se uma Promise passando uma função com os parâmetros `resolve` e `reject`.
+- **resolve**: Chama o sucesso da Promise, retornando um valor.
+- **reject**: Chama o erro da Promise, retornando uma mensagem de erro.
+- **then**: Usado para manipular o valor retornado por uma Promise resolvida.
+
+### Exemplo
+```js
+// Exemplo prático de Promise simulando uma requisição a uma API
+
+function buscarDados() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const sucesso = Math.random() > 0.5; // Sucesso aleatório
+
+      if (sucesso) {
+        resolve({ dados: "Aqui estão os dados!" });
+      } else {
+        reject("Erro ao buscar dados.");
+      }
+    }, 1000);
+  });
+}
+
+buscarDados()
+  .then((resposta) => {
+    console.log("Dados recebidos:", resposta.dados);
+  })
+  .catch((erro) => {
+    console.error("Erro:", erro);
+  });
+```
+
+## Async/Await
+
+O `async/await` é uma forma simplificada de trabalhar com Promises. Ao declarar uma função com `async`, podemos usar `await` para pausar a execução da função até que uma Promise seja resolvida.
+
+### Sintaxe
+```js
+// Sintaxe básica de async e await
+
+async function minhaFuncaoAssincrona() {
+  try {
+    const resultado = await minhaPromise;
+    console.log("Resultado:", resultado);
+  } catch (erro) {
+    console.error("Erro:", erro);
+  }
+}
+
+minhaFuncaoAssincrona();
+```
+
+### Explicação:
+
+- **async**: Declara uma função assíncrona que retorna uma Promise.
+- **await**: Pausa a execução até que a Promise seja resolvida. Só pode ser usada dentro de funções assíncronas.
+
+### Exemplo
+```js
+// Exemplo prático de async/await em uma função que simula uma requisição
+
+async function buscarDados() {
+  try {
+    const resposta = await fetch("https://jsonplaceholder.typicode.com/posts");
+    const dados = await resposta.json();
+    console.log("Dados recebidos:", dados);
+  } catch (erro) {
+    console.error("Erro na requisição:", erro);
+  }
+}
+
+buscarDados();
+```
+
+## Tratamento de Erros Assíncronos
+
+Já passamos pelo módulo de tramento de erros com try...catch, mas vale a pena relembrar. Erros em código assíncrono podem ser capturados usando `try...catch`, o que permite gerenciar problemas de forma segura. Em funções assíncronas, `try...catch` captura erros de Promises rejeitadas.
+
+### Sintaxe
+```js
+// Uso de try...catch com async/await para capturar erros
+
+async function processarDados() {
+  try {
+    const dados = await buscarDadosAssincronos();
+    console.log("Dados:", dados);
+  } catch (erro) {
+    console.error("Erro ao processar dados:", erro);
+  }
+}
+```
+
+### Explicação:
+
+- **try...catch**: `try` envolve o código que pode gerar um erro; `catch` captura e trata o erro.
+- No contexto `async/await`, o `try...catch` permite capturar erros sem precisar usar `catch` diretamente em Promises.
+
+### Exemplo
+```js
+// Exemplo prático de try...catch em código assíncrono com erro simulado
+
+async function obterDadosComErro() {
+  throw new Error("Erro ao obter dados!");
+}
+
+async function executar() {
+  try {
+    const dados = await obterDadosComErro();
+    console.log("Dados:", dados);
+  } catch (erro) {
+    console.error("Erro capturado:", erro.message);
+  }
+}
+
+executar();
+```
+
+<Admonition type="info" title="Considerações sobre Programação Assíncrona">
+  - **Código não-bloqueante**: Promises e async/await permitem executar tarefas longas sem bloquear o código.
+  - **Promise.all**: Executa várias Promises simultaneamente, retornando uma nova Promise resolvida quando todas forem concluídas.
+  - **Tratamento de Erros**: Sempre que possível, capture erros em Promises com `.catch()` ou use `try...catch` em funções assíncronas.
+  - **Consistência**: Prefira `async/await` para código mais legível, mas esteja atento aos casos em que Promises oferecem melhor controle.
+</Admonition>
