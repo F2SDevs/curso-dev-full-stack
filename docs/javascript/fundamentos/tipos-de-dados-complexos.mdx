@@ -1,0 +1,132 @@
+---
+title: Tipos de Dados Complexos - Arrays
+sidebar_label: Tipos de Dados Complexos - Arrays
+sidebar_position: 19
+---
+
+import Example from "@site/src/components/Example";
+import Admonition from "@theme/Admonition";
+
+
+## Explicação Conceitual
+
+Arrays são estruturas de dados que permitem armazenar uma coleção ordenada de valores, que podem ser de qualquer tipo, como números, strings ou objetos. Em JavaScript, arrays possuem uma série de métodos para facilitar a adição, remoção e manipulação dos seus elementos.
+
+## Criação e Manipulação de Arrays
+
+Para criar um array, podemos usar a notação de colchetes (`[]`) ou o construtor `Array`. Em arrays, acessamos elementos usando índices, começando de zero.
+
+### Sintaxe
+```js
+const frutas = ["maçã", "banana", "laranja"];
+console.log(frutas[0]); // Acessa o primeiro elemento
+frutas[1] = "uva"; // Modifica o segundo elemento
+console.log(frutas.length); // Retorna o tamanho do array
+```
+
+### Explicação:
+
+- **Inicialização**: Definimos arrays usando colchetes (`[]`) ou `new Array()`.
+- **Acessando elementos**: Utilizamos o índice entre colchetes para acessar ou modificar um elemento específico.
+- **Tamanho do array**: A propriedade `length` fornece o número de elementos em um array.
+
+### Exemplo
+```js
+const numeros = [10, 20, 30];
+console.log("Array inicial:", numeros);
+
+numeros[1] = 25; // Modifica o valor no índice 1
+numeros.push(40); // Adiciona um novo número ao final
+console.log("Array atualizado:", numeros);
+```
+
+## Métodos de Arrays
+
+Arrays possuem métodos embutidos para manipular seus elementos de maneira fácil e eficiente.
+
+### Sintaxe
+```js
+// Exemplo dos métodos de array push, pop, shift, unshift e indexOf
+
+const nomes = ["Ana", "Carlos", "Beatriz"];
+
+nomes.push("Diego"); // Adiciona "Diego" ao final do array
+nomes.pop(); // Remove o último elemento do array
+nomes.unshift("Lucas"); // Adiciona "Lucas" ao início do array
+nomes.shift(); // Remove o primeiro elemento do array
+console.log(nomes.indexOf("Carlos")); // Retorna o índice de "Carlos" (ou -1 se não existir)
+```
+
+### Explicação:
+
+- **push**: Adiciona um elemento ao final do array.
+- **pop**: Remove o último elemento do array.
+- **shift**: Remove o primeiro elemento do array.
+- **unshift**: Adiciona um elemento no início do array.
+- **indexOf**: Retorna o índice de um elemento específico, ou -1 se o elemento não existir no array.
+
+### Exemplo
+```js
+// Exemplo prático de manipulação de arrays usando métodos comuns
+
+const listaCompras = ["arroz", "feijão", "leite"];
+console.log("Lista inicial:", listaCompras);
+
+listaCompras.push("café"); // Adiciona um item no final
+listaCompras.unshift("pão"); // Adiciona um item no início
+listaCompras.pop(); // Remove o último item
+listaCompras.shift(); // Remove o primeiro item
+console.log("Lista atualizada:", listaCompras);
+console.log("Índice do 'feijão':", listaCompras.indexOf("feijão"));
+```
+
+## Percorrendo Arrays
+
+Para acessar ou manipular cada elemento de um array, podemos usar loops como `for` e `for...of`.
+
+### Sintaxe
+```js
+// Uso de for e for...of para percorrer arrays
+
+const cores = ["azul", "vermelho", "verde"];
+
+// for loop
+for (let i = 0; i < cores.length; i++) {
+  console.log(`Cor ${i}: ${cores[i]}`);
+}
+
+// for...of loop
+for (const cor of cores) {
+  console.log("Cor:", cor);
+}
+```
+
+### Explicação:
+
+- **for loop**: Usado para percorrer o array com base nos índices.
+- **for...of loop**: Itera diretamente sobre os elementos do array, ideal para leitura de valores.
+
+### Exemplo
+```js
+// Exemplo prático de percorrer arrays com for e for...of
+
+const temperaturas = [22, 27, 21, 24];
+
+// Usando for loop para manipular cada valor
+for (let i = 0; i < temperaturas.length; i++) {
+  temperaturas[i] += 2; // Incrementa cada temperatura em 2
+}
+console.log("Temperaturas atualizadas (for loop):", temperaturas);
+
+// Usando for...of para exibir os valores
+for (const temp of temperaturas) {
+  console.log("Temperatura:", temp);
+}
+```
+
+<Admonition type="info" title="Dicas sobre Arrays">
+  - **Mutabilidade**: Métodos como `push` e `pop` modificam o array original.
+  - **Performance**: Loops `for` podem ser ligeiramente mais rápidos, mas a diferença é pequena para a maioria dos casos.
+  - **Mapeamento e Filtros**: Use `map` e `filter` para manipular arrays de forma funcional.
+  - **Operações de Fim/Início**: Prefira `push` e `pop` para operações no final do array, e `unshift` e `shift` para operações no início.
+</Admonition>
