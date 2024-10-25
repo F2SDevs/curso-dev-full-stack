@@ -1,0 +1,179 @@
+---
+title: Manipulação do DOM
+sidebar_label: Manipulação do DOM
+sidebar_position: 17
+---
+
+import Example from "@site/src/components/Example";
+
+## Explicação Conceitual
+
+O Document Object Model (DOM) é a interface de programação que representa a estrutura HTML ou XML de um documento, permitindo que o JavaScript manipule os elementos e conteúdos da página. Com o DOM, podemos acessar e modificar elementos específicos, responder a eventos e interagir com o conteúdo de maneira dinâmica. O DOM é uma representação hierárquica dos elementos da página. Cada elemento HTML é um nó que pode ser acessado, modificado ou removido usando JavaScript. Ele permite criar uma página interativa, modificando o conteúdo sem precisar recarregar a página.
+
+## Seleção de Elementos HTML com JavaScript
+
+Para modificar elementos no DOM, primeiro precisamos selecioná-los. JavaScript oferece várias maneiras de selecionar elementos, incluindo `getElementById`, `getElementsByClassName`, `getElementsByTagName`, `querySelector`, e `querySelectorAll`.
+
+### Sintaxe
+
+```js
+// Seleciona um elemento pelo ID
+const elementoPorId = document.getElementById('meuId');
+
+// Seleciona todos os elementos com uma classe específica
+const elementosPorClasse = document.getElementsByClassName('minhaClasse');
+
+// Seleciona todos os elementos com uma determinada tag
+const elementosPorTag = document.getElementsByTagName('div');
+
+// Seleciona o primeiro elemento que corresponde a um seletor CSS
+const primeiroElemento = document.querySelector('.meuSeletor');
+
+// Seleciona todos os elementos que correspondem a um seletor CSS
+const todosElementos = document.querySelectorAll('.meuSeletor');
+```
+
+
+### Explicação:
+
+
+
+- **getElementById**: Seleciona o elemento com o `id` especificado.
+- **getElementsByClassName**: Retorna uma coleção de elementos com a classe especificada.
+- **getElementsByTagName**: Retorna uma coleção de elementos com a tag especificada.
+- **querySelector**: Seleciona o primeiro elemento que corresponde a um seletor CSS.
+- **querySelectorAll**: Retorna todos os elementos que correspondem a um seletor CSS.
+
+### Exemplo
+
+```js
+// Seleciona o título pelo ID e altera seu texto
+const titulo = document.getElementById('titulo');
+titulo.textContent = 'Novo Título';
+
+// Seleciona todos os itens de lista por classe e altera a cor de fundo
+const itensLista = document.getElementsByClassName('item-lista');
+Array.from(itensLista).forEach((item) => {
+  item.style.backgroundColor = 'lightblue';
+});
+
+// Seleciona o primeiro botão usando querySelector
+const botao = document.querySelector('.botao-acao');
+botao.textContent = 'Clique Aqui';
+```
+
+
+## Modificação de Elementos do DOM
+
+Depois de selecionar um elemento, podemos modificar seu conteúdo, atributos e classes. Podemos usar métodos como `textContent`, `innerHTML`, `setAttribute`, `classList.add`, `classList.remove`, entre outros, para manipular os elementos.
+
+### Sintaxe
+
+```js
+// Alterando o texto de um elemento
+const paragrafo = document.getElementById('meuParagrafo');
+paragrafo.textContent = 'Novo conteúdo de texto';
+
+// Alterando o conteúdo HTML de um elemento
+const container = document.querySelector('.container');
+container.innerHTML = '<p>Novo parágrafo inserido!</p>';
+
+// Adicionando um atributo a um elemento
+const imagem = document.querySelector('img');
+imagem.setAttribute('alt', 'Descrição da imagem');
+
+// Manipulando classes de CSS
+const box = document.querySelector('.box');
+box.classList.add('ativo'); // Adiciona a classe
+box.classList.remove('inativo'); // Remove a classe
+```
+### Explicação:
+
+- **textContent**: Altera o texto dentro de um elemento.
+- **innerHTML**: Define ou obtém o conteúdo HTML de um elemento.
+- **setAttribute**: Define um atributo específico no elemento.
+- **classList.add/remove**: Adiciona ou remove classes CSS do elemento.
+
+### Exemplo
+
+```js
+// Modifica o texto de um botão
+const botaoAtualizar = document.querySelector('.botao-atualizar');
+botaoAtualizar.textContent = 'Atualizar Dados';
+
+// Adiciona uma nova classe a todos os elementos com a classe 'item'
+const itens = document.querySelectorAll('.item');
+itens.forEach((item) => {
+  item.classList.add('selecionado');
+});
+
+// Muda o atributo 'src' de uma imagem
+const logo = document.querySelector('#logo');
+logo.setAttribute('src', 'nova-imagem.png');
+```
+
+## Manipulação de Eventos
+
+Os eventos permitem responder às ações do usuário, como cliques, entrada de dados e submissões de formulário. Em JavaScript, podemos adicionar ouvintes de eventos com `addEventListener`, que define a função a ser executada quando o evento ocorre.
+
+### Sintaxe
+```js
+// Adicionando um evento de clique a um botão
+const botaoClique = document.querySelector('.botao-clique');
+botaoClique.addEventListener('click', () => {
+  alert('Botão clicado!');
+});
+
+// Evento input para atualizar texto em tempo real
+const campoTexto = document.querySelector('#campo-texto');
+campoTexto.addEventListener('input', (evento) => {
+  const valorAtual = evento.target.value;
+  console.log('Texto atualizado:', valorAtual);
+});
+
+// Evento change para um dropdown
+const seletor = document.querySelector('#seletor-opcoes');
+seletor.addEventListener('change', (evento) => {
+  console.log('Opção selecionada:', evento.target.value);
+});
+```
+
+### Exemplo 1:
+
+- **click**: Executado quando o usuário clica em um elemento.
+- **input**: Ativado quando o usuário insere dados em um campo de entrada.
+- **change**: Disparado quando o valor de um campo muda (ex., um select).
+- **submit**: Executado ao enviar um formulário.
+
+### Exemplo 2
+
+```js
+// Evento click que altera a cor de um item ao ser clicado
+const quadrado = document.querySelector('.quadrado');
+quadrado.addEventListener('click', () => {
+  quadrado.style.backgroundColor = 'green';
+});
+
+// Evento input que exibe o texto do campo em tempo real
+const inputNome = document.querySelector('#nome');
+inputNome.addEventListener('input', () => {
+  const exibicaoTexto = document.querySelector('#exibicao-texto');
+  exibicaoTexto.textContent = inputNome.value;
+});
+
+// Evento submit que previne o envio do formulário
+const formulario = document.querySelector('#formulario');
+formulario.addEventListener('submit', (evento) => {
+  evento.preventDefault();
+  alert('Formulário não enviado. Valide os campos!');
+});
+```
+
+import Admonition from "@theme/Admonition";
+
+<Admonition type="info" title="Dicas de Manipulação do DOM">
+  - **Uso de querySelector**: É mais flexível por aceitar seletores CSS completos.  
+  - **Cuidado com innerHTML**: Evite usá-lo para inserir conteúdo de usuários, pois pode causar vulnerabilidades XSS.  
+  - **Eventos Delegados**: Para desempenho, adicione eventos a elementos pais para capturar eventos em filhos (event delegation).  
+  - **Limitação de Manipulações**: Cada manipulação do DOM pode ser lenta. Tente minimizar a frequência com que o DOM é alterado para otimizar o desempenho.
+</Admonition>
