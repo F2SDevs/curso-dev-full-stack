@@ -4,6 +4,430 @@ sidebar_label: Orientação a Objetos
 sidebar_position: 18
 ---
 
-## Introdução à Orientação a Objetos (POO)
-
 POO é um paradigma de programação baseado na organização do código em torno de "objetos", que são abstrações de entidades do mundo real. A POO ajuda a organizar o código de maneira modular, facilitando o reuso e a manutenção.
+
+## Conceitos Básicos de POO
+
+### Classes e Objetos
+
+#### O que é uma Classe?
+
+Em POO, uma classe funciona como um modelo ou uma "fábrica" para criar objetos. Ela define as propriedades (atributos) e as ações (métodos) que os objetos derivados dessa classe terão.
+
+Você pode pensar numa classe como uma planta de construção de uma casa. Ela não é uma casa em si, mas contém todas as instruções necessárias para construir uma.
+
+Exemplo de uma classe em JavaScript:
+```js
+class Carro {
+  // O corpo da classe define o que os carros terão
+}
+```
+
+#### O que é um Objeto?
+
+Um objeto é uma instância de uma classe, ou seja, ele é criado a partir da classe e possui as características e comportamentos definidos por ela.
+
+Usando a analogia da casa, o objeto seria uma casa real construída com base na planta.
+
+Exemplo de criação de um objeto:
+```js
+const meuCarro = new Carro(); // 'meuCarro' é um objeto criado a partir da classe 'Carro'
+```
+
+### Atributos e Métodos
+
+#### O que são Atributos?
+
+Atributos são variáveis dentro de uma classe que representam as características de um objeto. Em JavaScript, esses atributos podem ser definidos dentro do construtor da classe, que é um método especial chamado quando um objeto é criado.
+
+Por exemplo, num carro, características como a cor, o modelo e o ano seriam atributos:
+```js
+class Carro {
+  constructor(cor, modelo, ano) {
+    this.cor = cor;
+    this.modelo = modelo;
+    this.ano = ano;
+  }
+}
+```
+
+#### O que são Métodos?
+
+Métodos são funções dentro de uma classe que definem o comportamento de um objeto, ou seja, as ações que ele pode realizar.
+
+Por exemplo, num carro, métodos como acelerar, frear e buzinar definem ações que o carro pode executar:
+```js
+class Carro {
+    constructor(cor, modelo, ano) {
+        this.cor = cor;
+        this.modelo = modelo;
+        this.ano = ano;
+    }
+
+    acelerar() {
+        console.log("O carro está acelerando");
+    }
+
+    frear() {
+        console.log("O carro está freando");
+    }
+}
+```
+
+#### Criando e Usando Objetos com Atributos e Métodos
+
+Após definir a classe, você pode criar objetos dela e acessar seus atributos e métodos:
+```js
+const meuCarro = new Carro("vermelho", "Sedan", 2022);
+
+console.log(meuCarro.cor); // Saída: vermelho
+meuCarro.acelerar();       // Saída: O carro está acelerando
+meuCarro.frear();          // Saída: O carro está freando
+```
+
+### This
+
+Em JavaScript, a palavra-chave `this` é usada para referir-se ao contexto atual de execução. Em uma classe, `this` normalmente aponta para a instância da classe onde o método está sendo chamado, mas o valor de `this` pode mudar dependendo do contexto em que a função é chamada.
+
+## Encapsulamento
+
+**Encapsulamento** e refere à prática de "esconder" ou "proteger" dados sensíveis dentro de uma classe, permitindo o acesso a eles apenas de formas controladas. Isso ajuda a garantir a integridade dos dados, permitindo que a classe controle como os atributos são acessados e modificados.
+
+### Ocultação de Dados e Garantia da Integridade dos Atributos
+
+Em POO, nem todos os dados devem estar acessíveis diretamente por quem usa a classe. Alguns dados são considerados internos e precisam ser manipulados apenas por métodos específicos.
+
+Ao esconder certos dados, evitamos que partes externas do código modifiquem diretamente os atributos de um objeto, o que ajuda a manter a integridade e a consistência das informações.
+
+#### Exemplo:
+
+Imagine uma classe ContaBancaria onde o saldo precisa ser protegido. Se qualquer parte do código pudesse modificar o saldo diretamente, poderíamos ter problemas de segurança e inconsistência.
+
+### Convenção de Variáveis Privadas Usando `_`
+
+Em JavaScript, a prática de encapsulamento pode ser implementada usando uma convenção para atributos privados, adicionando um `_` (underline) no início do nome da variável (exemplo: `_idade`). Esse padrão não torna o atributo realmente privado, mas indica aos desenvolvedores que ele não deve ser acessado diretamente.
+
+#### Exemplo:
+
+```js
+class Pessoa {
+    constructor(nome, idade) {
+        this.nome = nome;
+        this._idade = idade; // Atributo "privado"
+    }
+}
+```
+
+###  Métodos Getters e Setters para Acesso Controlado aos Dados
+
+Em vez de acessar e modificar diretamente os atributos "privados", utilizamos métodos chamados getters e setters. Os getters permitem ler o valor de um atributo, enquanto os setters permitem modificá-lo.
+
+Com esses métodos, a classe pode incluir verificações e validações antes de retornar ou alterar um valor, o que ajuda a manter os dados corretos.
+
+#### Exemplo:
+
+```js
+class Pessoa {
+    constructor(nome, idade) {
+        this.nome = nome;
+        this._idade = idade;
+    }
+
+    // Getter para obter a idade
+    get idade() {
+        return this._idade;
+    }
+
+    // Setter para modificar a idade
+    set idade(novaIdade) {
+        if (novaIdade > 0) {
+            this._idade = novaIdade;
+        } else {
+            console.log("Idade inválida!");
+        }
+    }
+}
+
+const pessoa = new Pessoa("João", 30);
+console.log(pessoa.idade); // Usa o getter, Saída: 30
+
+pessoa.idade = 35;         // Usa o setter
+console.log(pessoa.idade); // Saída: 35
+
+pessoa.idade = -5;         // Usa o setter, Saída: Idade inválida!
+console.log(pessoa.idade); // Saída: 35
+```
+
+Neste exemplo, o setter verifica se a idade é positiva antes de atualizar o atributo _idade. Dessa forma, controlamos como os dados são alterados, protegendo a integridade do objeto.
+
+## Herança
+
+**Herança** é um conceito fundamental de POO que permite criar uma nova classe com base em uma classe já existente. Com a herança, podemos reutilizar código, criando classes que herdam (ou "recebem") características e comportamentos de outras classes, evitando a repetição de código.
+
+### O Conceito de Herança e Reutilização de Código
+
+A herança permite que uma classe "filha" herde atributos e métodos de uma classe "pai".
+
+Isso facilita a criação de novas classes sem precisar reescrever código, já que a classe filha pode usar os atributos e métodos da classe pai e também adicionar suas próprias funcionalidades.
+
+**Exemplo prático:** imagine que temos uma classe Animal, e queremos criar classes específicas para `Cachorro` e `Gato`. Em vez de duplicar código comum a todos os animais, como "comer" ou "dormir", podemos colocar esses métodos em `Animal` e fazer com que `Cachorro` e `Gato` herdem de `Animal`.
+
+### Criação de Classes "Pais" e "Filhas" com `extends`
+
+Em JavaScript, usamos a palavra-chave `extends` para criar uma relação de herança entre duas classes. A classe "filha" usa `extends` para herdar os atributos e métodos da classe "pai".
+
+A classe "pai" é a classe principal ou "base", enquanto a classe "filha" é a que herda suas propriedades e pode adicionar novas funcionalidades.
+
+#### Exemplo:
+```js
+class Animal {
+    constructor(nome) {
+        this.nome = nome;
+    }
+
+    comer() {
+        console.log(`${this.nome} está comendo.`);
+    }
+}
+
+// Classe filha que herda de Animal
+class Cachorro extends Animal {
+    latir() {
+        console.log(`${this.nome} está latindo.`);
+    }
+}
+```
+
+Vamos ver como a herança funciona criando um objeto da classe `Cachorro` e usando tanto os métodos herdados da classe `Animal` quanto o método específico de `Cachorro`.
+
+```js
+const meuCachorro = new Cachorro("Rex");
+
+// Usando o método herdado da classe pai 'Animal'
+meuCachorro.comer();  // Saída: Rex está comendo.
+
+// Usando o método específico da classe filha 'Cachorro'
+meuCachorro.latir();  // Saída: Rex está latindo.
+```
+
+Nesse exemplo, `Cachorro` herdou o método `comer()` da classe `Animal`, então podemos usá-lo diretamente no objeto `meuCachorro`, mesmo sem o método estar definido na classe `Cachorro`.
+
+Além disso, `Cachorro` tem seu próprio método `latir()`, que é exclusivo dessa classe.
+
+## Polimorfismo
+
+**Polimorfismo** é um conceito de POO que permite que métodos de classes derivadas (ou "filhas") sejam personalizados para atender necessidades específicas, mantendo, ao mesmo tempo, uma estrutura comum definida pela classe "pai". Isso significa que, embora diferentes classes possam ter métodos com o mesmo nome, cada uma pode implementar esse método de uma forma única.
+
+### Personalizando Métodos em Classes Derivadas
+
+Em JavaScript, as classes "filhas" que herdam métodos de uma classe "pai" podem **sobrescrever** esses métodos, criando sua própria versão.
+
+Esse processo é chamado de **sobrescrita de métodos.** Ele permite que uma classe filha forneça uma implementação diferente para um método herdado da classe pai.
+
+**Exemplo prático:** imagine uma classe `Animal` que tenha um método `fazerSom()`. Cada tipo específico de animal (como `Cachorro` e `Gato`) pode sobrescrever esse método para fazer sons específicos, como "latir" e "miar".
+
+### Exemplo de Polimorfismo com Sobrescrita de Métodos
+
+Vamos ver como podemos usar o polimorfismo para sobrescrever métodos em classes filhas.
+
+```js
+class Animal {
+    constructor(nome) {
+        this.nome = nome;
+    }
+
+    fazerSom() {
+        console.log(`${this.nome} está fazendo um som.`);
+    }
+}
+
+// Classe 'Cachorro' herda de 'Animal' e sobrescreve o método 'fazerSom'
+class Cachorro extends Animal {
+    fazerSom() {
+        console.log(`${this.nome} está latindo.`);
+    }
+}
+
+// Classe 'Gato' herda de 'Animal' e sobrescreve o método 'fazerSom'
+class Gato extends Animal {
+    fazerSom() {
+        console.log(`${this.nome} está miando.`);
+    }
+}
+```
+Nesse exemplo, cada classe filha (`Cachorro` e `Gato`) possui uma implementação própria do método `fazerSom()`. Assim, o comportamento muda dependendo do tipo de objeto que chamamos.
+
+### Como o Polimorfismo Permite um Tratamento Mais Flexível
+
+O polimorfismo facilita o trabalho com objetos de classes diferentes que compartilham uma estrutura comum. Em vez de verificar qual é o tipo do objeto e qual método usar, podemos simplesmente chamar o método e deixar que cada objeto execute a versão que lhe corresponde.
+
+No exemplo abaixo, mesmo que não saibamos de antemão se um animal é um `Cachorro` ou um `Gato`, podemos chamar o método `fazerSom()` e o JavaScript executará a versão correta.
+
+#### Exemplo:
+
+```js
+const animais = [new Cachorro("Rex"), new Gato("Mia")];
+
+animais.forEach(animal => {
+    animal.fazerSom();
+});
+// Saída:
+// Rex está latindo.
+// Mia está miando.
+```
+Aqui, a lista `animais` contém tanto `Cachorro` quanto `Gato`. Ao chamar `fazerSom()` em cada animal, o JavaScript executa automaticamente o método específico de cada classe, seja `latindo` ou `miando`.
+
+## Abstração
+
+**Abstração**  é um dos pilares de POO e se refere à ideia de focar apenas nas **características essenciais** de um objeto, ignorando os detalhes que não são relevantes no contexto atual. Em outras palavras, a abstração permite que você crie um modelo simplificado de um objeto, destacando apenas o que é importante para sua aplicação.
+
+### Conceito de Abstração
+
+Abstração é como escolher quais informações e comportamentos são relevantes para a nossa classe e omitir os detalhes desnecessários.
+
+Por exemplo, em uma classe `FormaGeometrica`, pode ser importante definir métodos como `calcularArea` e `calcularPerimetro`, pois todas as formas geométricas têm esses comportamentos. No entanto, detalhes específicos de cada forma, como o número de lados, não seriam definidos na classe `FormaGeometrica`, pois isso varia entre as diferentes formas (quadrado, círculo, triângulo, etc.).
+
+Em uma aplicação prática, usamos abstração para criar uma estrutura que representa apenas o que precisamos sobre um objeto para a aplicação funcionar.
+
+### Criando "Classes Abstratas" em JavaScript com Convenções
+
+Em algumas linguagens de programação, como Java e C#, existe o conceito de classe abstrata: uma classe que serve como modelo para outras classes, mas que não pode ser instanciada diretamente.
+
+JavaScript não possui classes abstratas nativas. No entanto, podemos simular esse conceito com **convenções** e **métodos que precisam ser implementados** em classes derivadas.
+
+A prática comum é definir uma classe "base" com métodos que lançam erros se não forem implementados em classes filhas. Assim, sinalizamos que essas classes derivadas devem sobrescrever esses métodos, criando a sua própria versão.
+
+#### Exemplo de simulação de uma "classe abstrata" em JavaScript:
+
+```js
+class FormaGeometrica {
+    constructor(nome) {
+        if (this.constructor === FormaGeometrica) {
+            throw new Error("FormaGeometrica é uma classe abstrata e não pode ser instanciada diretamente.");
+        }
+        this.nome = nome;
+    }
+
+    // Método "abstrato" que as classes filhas devem sobrescrever
+    calcularArea() {
+        throw new Error("O método calcularArea() precisa ser implementado na classe derivada.");
+    }
+
+    calcularPerimetro() {
+        throw new Error("O método calcularPerimetro() precisa ser implementado na classe derivada.");
+    }
+}
+```
+
+Aqui, criamos uma classe `FormaGeometrica` que representa a estrutura básica de uma forma geométrica, mas não define detalhes específicos. Tentativas de instanciar essa classe diretamente ou de chamar métodos sem implementação resultarão em erros.
+
+#### Exemplo de implementação em classes filhas:
+```js
+class Quadrado extends FormaGeometrica {
+    constructor(lado) {
+        super("Quadrado");
+        this.lado = lado;
+    }
+
+    calcularArea() {
+        return this.lado * this.lado;
+    }
+
+    calcularPerimetro() {
+        return this.lado * 4;
+    }
+}
+
+class Circulo extends FormaGeometrica {
+    constructor(raio) {
+        super("Círculo");
+        this.raio = raio;
+    }
+
+    calcularArea() {
+        return Math.PI * this.raio * this.raio;
+    }
+
+    calcularPerimetro() {
+        return 2 * Math.PI * this.raio;
+    }
+}
+```
+
+Neste exemplo, `Quadrado` e `Circulo` são classes derivadas de `FormaGeometrica` e implementam suas próprias versões dos métodos `calcularArea` e `calcularPerimetro`.
+
+### Usando a Abstração na Prática
+
+Com essa estrutura, podemos tratar todas as formas geométricas de maneira uniforme, chamando métodos como `calcularArea()` e `calcularPerimetro()` sem precisar saber exatamente o tipo da forma.
+
+Assim, a abstração simplifica a maneira como interagimos com objetos, ao nos concentrarmos apenas nas informações e comportamentos essenciais.
+
+#### Exemplo:
+
+```js
+const formas = [new Quadrado(4), new Circulo(3)];
+
+formas.forEach(forma => {
+    console.log(`${forma.nome} - Área: ${forma.calcularArea()} - Perímetro: ${forma.calcularPerimetro()}`);
+});
+// Saída:
+// Quadrado - Área: 16 - Perímetro: 16
+// Círculo - Área: 28.27 - Perímetro: 18.85
+```
+
+## Métodos Estáticos
+
+Em JavaScript, métodos estáticos são métodos que pertencem à própria classe, e não a uma instância específica. Eles são definidos com a palavra-chave `static` e são úteis para funções que não dependem dos dados de uma instância da classe — ou seja, funções que funcionam apenas com dados ou cálculos da própria classe, sem precisar acessar propriedades de objetos criados a partir dela.
+
+### Por que usar Métodos Estáticos
+
+Um método estático é chamado diretamente na classe e não em suas instâncias.
+
+Eles são úteis para criar funções utilitárias ou operações que estão relacionadas à classe, mas não a uma instância específica.
+
+Por exemplo, uma função matemática que realiza um cálculo específico pode ser um método estático, pois ela só usa valores passados como argumento e não depende dos atributos de um objeto.
+
+#### Exemplo:
+
+Imagine uma classe `Calculadora` que possui operações matemáticas. Essas operações, como somar ou subtrair, não dependem de atributos da instância, mas apenas dos números fornecidos como argumentos. Portanto, faz sentido que elas sejam métodos estáticos.
+
+#### Exemplos Práticos: Métodos que Não Dependem da Instância
+
+Exemplo de uso de métodos estáticos em uma classe `Calculadora`:
+
+```js
+class Calculadora {
+    static somar(a, b) {
+        return a + b;
+    }
+
+    static subtrair(a, b) {
+        return a - b;
+    }
+
+    static multiplicar(a, b) {
+        return a * b;
+    }
+
+    static dividir(a, b) {
+        if (b === 0) {
+            throw new Error("Não é possível dividir por zero.");
+        }
+        return a / b;
+    }
+}
+
+// Chamando métodos estáticos
+console.log(Calculadora.somar(3, 5));      // Saída: 8
+console.log(Calculadora.subtrair(10, 4));  // Saída: 6
+console.log(Calculadora.multiplicar(6, 7)); // Saída: 42
+console.log(Calculadora.dividir(20, 4));   // Saída: 5
+```
+
+Aqui, os métodos `somar`, `subtrair`, `multiplicar` e `dividir` são métodos estáticos, pois não dependem de uma instância de `Calculadora` para funcionar. Podemos chamá-los diretamente usando `Calculadora.somar(3, 5)` em vez de criar uma instância com new `Calculadora()`.
+
+### Comparação com Métodos de Instância
+
+Métodos de instância, por outro lado, requerem que você crie uma instância da classe para chamá-los, pois geralmente dependem de atributos específicos daquela instância.
+
+Métodos estáticos são como "ferramentas" da classe, acessíveis diretamente pela classe, e não têm acesso ao contexto `this` da instância.
