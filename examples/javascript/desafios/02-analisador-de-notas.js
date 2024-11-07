@@ -20,10 +20,10 @@ alunos.forEach((aluno) => {
   // Adicionando média individual do aluno
   aluno.media = (notas.reduce((acc, num) => acc + num, 0) / notas.length).toFixed(2);
 
-  // somando alunsos acime e abaixo da media
+  // Adcionando 1 ao contador de acima ou abaixo da média
   aluno.media >= 6 ? acimaMedia++ :  abaixoMedia++;
 
-  // Atualizando maior e menor nota
+  // Atualizando a maior e menor nota
   maiorNota = Math.max(maiorNota, ...notas);
   menorNota = Math.min(menorNota, ...notas);
 
