@@ -290,3 +290,91 @@ x %= 2; // x agora é 0 (resto de 2 dividido por 2)
   - **Atribuição Combinada**: Operadores de atribuição como `+=` são atalhos que combinam operação e atribuição em uma única expressão.
   - **Curto-circuito em Operadores Lógicos**: Operadores lógicos podem evitar a avaliação de parte de uma expressão se o resultado já puder ser determinado (por exemplo, `false && ...` sempre será `false`).
 </Admonition>
+
+## Exercícios Propostos
+
+### Exercício 1: Operadores Aritméticos
+
+Crie duas variáveis, `a` e `b`, e atribua valores a elas. Em seguida, execute as seguintes operações: adição, subtração, multiplicação, divisão e módulo. Exiba o resultado de cada operação no console.
+
+<details>
+  <summary>Resposta</summary>
+
+ 
+
+```js
+let a = 10;  
+let b = 3;  
+
+console.log("Adição: ", a + b);  // Saída: 13
+console.log("Subtração: ", a - b);  // Saída: 7
+console.log("Multiplicação: ", a * b);   // Saída: 30
+console.log("Divisão: ", a / b);  // Saída: 3.3333333333333335
+console.log("Módulo: ", a % b);  // Saída: 1
+```
+</details>
+
+### Exercício 2: Incremento e Decremento
+
+Crie uma variável `contador` com o valor inicial de 5. Aplique o operador de incremento (`++`) e depois o operador de decremento (`--`) nela, e exiba o valor após cada operação.
+
+<details>
+  <summary>Resposta</summary>
+
+```js
+let contador = 5;  
+contador++;  
+console.log("Incremento: ", contador); // 6  
+contador--;  
+console.log("Decremento: ", contador); // 5  
+```
+
+</details>
+
+
+### Exercício 3: Comparação de Valores
+
+Crie duas variáveis, `x` e `y`, com valores diferentes. Utilize os operadores relacionais para comparar essas variáveis e exibir o resultado (verdadeiro ou falso) no console.
+
+<details> 
+  <summary>Resposta</summary>
+```js
+let x = 10;  
+let y = 5;  
+
+console.log(x > y); // true  
+console.log(x < y); // false  
+console.log(x == y); // false  
+console.log(x != y); // true  
+```
+</details>
+
+### Exercício 4: Operadores Lógicos
+Crie duas variáveis booleanas, verdadeiro e falso, e use os operadores lógicos `&&`, `||` e `!` para combinar essas variáveis. Exiba o resultado de cada operação no console.
+
+<details>
+ <summary>Resposta</summary>
+ ```js
+let verdadeiro = true;  
+let falso = false;  
+
+console.log(verdadeiro && falso); // false  
+console.log(verdadeiro || falso); // true  
+console.log(!verdadeiro); // false  
+```
+</details>
+
+
+### Exercício 5: Atribuições Compostas
+Crie uma variável total com o valor inicial de `100`. Aplique operadores de atribuição composta (`+=`, `-=`) para adicionar e subtrair valores dessa variável, e exiba o resultado no console.
+
+<details> 
+  <summary>Resposta</summary>
+```js
+let total = 100;  
+total += 50;  
+console.log(total); // 150  
+total -= 30;  
+console.log(total); // 120  
+```
+</details>
