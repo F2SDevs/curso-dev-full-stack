@@ -150,3 +150,84 @@ console.log(produto); // Output: undefined
     console.log(typeof value); // Saída: "null"
     ```
 </Admonition>
+
+
+## Exercícios Propostos
+
+### Exercício 1: Trabalhando com Strings
+Declare uma variável `nome` com o seu nome e outra variável `sobrenome` com seu sobrenome. Em seguida, concatene essas duas variáveis usando o operador `+` e exiba o resultado. Agora, faça o mesmo usando template literals.
+
+<details>
+  <summary>Resposta</summary>
+```js
+  const nome = "Kevin";
+const sobrenome = "Medeiros";
+console.log(nome + " " + sobrenome); // Usando o operador +. Saída: "Kevin Medeiros"
+console.log(`${nome} ${sobrenome}`); // Usando template literals. Saída: "Kevin Medeiros"
+```
+</details>
+
+---
+
+### Exercício 2: Diferença entre `null` e `undefined`
+Crie uma variável `carro` e atribua a ela o valor `null`. Em seguida, crie uma variável `bicicleta` sem atribuir nenhum valor. Exiba ambas as variáveis no console e analise as saídas. Analise qual é a diferença entre os dois valores.
+
+<details>
+  <summary>Resposta</summary>
+  ```js
+  let carro = null;
+let bicicleta;
+console.log(carro); // Saída: null
+console.log(bicicleta); // Saída: undefined
+// `carro` é definido como intencionalmente vazio, enquanto `bicicleta` não recebeu nenhum valor.
+```
+</details>
+
+---
+
+### Exercício 3: Trabalhando com Booleanos
+Crie uma variável `login` e defina-a como `true` para indicar que o usuário está logado. Em seguida, mude o valor para `false` para indicar que ele fez logout. Exiba o valor de `login` após cada atribuição e reflita sobre o uso de booleanos para representar estados.
+
+<details>
+  <summary>Resposta</summary>
+  ```js
+  let login = true;
+console.log(login); // Saída: true
+
+login = false;
+console.log(login); // Saída: false
+// Booleanos são úteis para indicar estados de "sim/não" ou "ativado/desativado".
+```
+</details>
+
+---
+
+### Exercício 4: Operação com Numbers
+Declare uma variável `precoProduto` com um valor numérico, por exemplo, 49.99. Em seguida, crie uma variável `quantidade` e atribua um número inteiro a ela. Multiplique `precoProduto` por `quantidade` e exiba o resultado, representando o valor total da compra.
+
+<details>
+  <summary>Resposta</summary>
+  ```js
+  const precoProduto = 49.99;
+const quantidade = 3;
+const totalCompra = precoProduto * quantidade;
+console.log(totalCompra); // Saída: 149.97
+```
+</details>
+
+---
+
+### Exercício 5: Verificação de Tipo com `typeof`
+Declare uma variável `idade` e atribua um valor numérico a ela. Em seguida, use `typeof` para verificar o tipo de dado da variável. Altere o valor de `idade` para uma string e verifique novamente o tipo de dado. O que acontece?
+
+<details>
+  <summary>Resposta</summary>
+  ```js
+  let idade = 25;
+console.log(typeof idade); // Saída: "number"
+
+idade = "25";
+console.log(typeof idade); // Saída: "string"
+// O tipo de `idade` mudou de `number` para `string` ao mudar o valor.
+```
+</details>
