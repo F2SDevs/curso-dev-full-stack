@@ -1,10 +1,10 @@
 // Estrutura de dados dos alunos
 const alunos = [
-  { nome: "João Paulo", nota1: 7, nota2: 5, nota3: 8 },
-  { nome: "Maria Clara", nota1: 9, nota2: 6, nota3: 7 },
-  { nome: "Carlos Eduardo", nota1: 4, nota2: 5, nota3: 6 },
-  { nome: "Ana Beatriz", nota1: 10, nota2: 9, nota3: 8 },
-  { nome: "Pedro Henrique", nota1: 5, nota2: 6, nota3: 5 },
+  { nome: "João Paulo", notas: [7,5,8] },
+  { nome: "Maria Clara", notas: [9,6,7] },
+  { nome: "Carlos Eduardo", notas: [4,5,6] },
+  { nome: "Ana Beatriz", notas: [10,9,8] },
+  { nome: "Pedro Henrique", notas: [5,6,5] },
 ];
 
 // Variáveis para cálculos gerais
@@ -15,17 +15,17 @@ let abaixoMedia = 0;
 
 // Vamos percorrer a Lista e tratar aluno por aluno
 alunos.forEach((aluno) => {
-  const { nota1, nota2, nota3 } = aluno;
+  const { notas } = aluno;
 
   // Adicionando média individual do aluno
-  aluno.media = ((nota1 + nota2 + nota3) / 3).toFixed(2);
+  aluno.media = (notas.reduce((acc, num) => acc + num, 0) / notas.length).toFixed(2);
 
   // somando alunsos acime e abaixo da media
   aluno.media >= 6 ? acimaMedia++ :  abaixoMedia++;
 
   // Atualizando maior e menor nota
-  maiorNota = Math.max(maiorNota, nota1, nota2, nota3);
-  menorNota = Math.min(menorNota, nota1, nota2, nota3);
+  maiorNota = Math.max(maiorNota, ...notas);
+  menorNota = Math.min(menorNota, ...notas);
 
   console.log(`Nome: ${aluno.nome} Media: ${aluno.media}`)
 });
