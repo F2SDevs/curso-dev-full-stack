@@ -117,3 +117,160 @@ switch (diaDaSemana) {
 
 ```
 Neste exemplo, dependendo do valor de `diaDaSemana`, um dos blocos será executado. O `default` é executado caso nenhum dos valores correspondentes seja encontrado.
+
+
+## Exercícios Propostos
+
+### Exercício 1: Verificando Idade com If e Else
+Crie um programa que leia a idade de uma pessoa e imprima se ela é maior ou menor de idade. Utilize a estrutura if e else.
+
+<details>
+<summary>Resposta</summary>
+```js
+const idade = 20;
+
+if (idade >= 18) {
+    console.log('Você é maior de idade.');
+} else {
+    console.log('Você é menor de idade.');
+}
+```
+</details>
+
+### Exercício 2: Verificando Idade com Operador Ternário
+Faça um programa que leia a idade de uma pessoa e use o operador ternário para imprimir se a pessoa é "maior de idade" ou "menor de idade". Utilize o operador ternário.
+
+<details>
+<summary>Resposta</summary>
+```js
+const idade = 20;
+const status = idade >= 18 ? 'maior de idade' : 'menor de idade';
+
+console.log(`Você é ${status}.`);
+```
+</details>
+
+### Exercício 3: Par ou Ímpar
+
+Escreva um programa que verifique se um número é par ou ímpar. Use o operador módulo `(%)`. Se o número for divisível por 2, imprima "Número par". Caso contrário, imprima "Número ímpar".
+
+<details>
+<summary>Resposta</summary>
+```js
+const numero = 7;
+
+if (numero % 2 === 0) {
+    console.log('Número par');
+} else {
+    console.log('Número ímpar');
+}
+```
+</details>
+
+### Exercício 4: Classificação de Temperatura
+
+Crie um programa que leia a temperatura em graus Celsius e classifique a temperatura como "Frio", "Agradável" ou "Quente". Se a temperatura for abaixo de 15°C, a resposta deve ser "Frio". Se a temperatura for entre 15°C e 25°C, a resposta deve ser "Agradável". Se a temperatura for acima de 25°C, a resposta deve ser "Quente".
+
+<details>
+<summary>Resposta</summary>
+```js
+const temperatura = 22;
+
+if (temperatura < 15) {
+    console.log('Frio');
+} else if (temperatura >= 15 && temperatura <= 25) {
+    console.log('Agradável');
+} else {
+    console.log('Quente');
+}
+```
+</details>
+
+### Exercício 5: Dia da Semana
+Escreva um programa que leia um número de 1 a 7 e imprima o nome do dia da semana correspondente. Use a estrutura switch. Se o número for 1, imprima "Domingo", se for 2, imprima "Segunda-feira", e assim por diante.
+
+<details>
+<summary>Resposta</summary>
+```js
+const diaDaSemana = 3;
+
+switch (diaDaSemana) {
+    case 1:
+        console.log('Domingo');
+        break;
+    case 2:
+        console.log('Segunda-feira');
+        break;
+    case 3:
+        console.log('Terça-feira');
+        break;
+    case 4:
+        console.log('Quarta-feira');
+        break;
+    case 5:
+        console.log('Quinta-feira');
+        break;
+    case 6:
+        console.log('Sexta-feira');
+        break;
+    case 7:
+        console.log('Sábado');
+        break;
+    default:
+        console.log('Dia inválido');
+}
+```
+</details>
+
+### Exercício 6: Notas de um Aluno
+
+Crie um programa que leia a nota de um aluno e imprima a situação do aluno (Aprovado, Reprovado ou Recuperação). Se a nota for maior ou igual a 7, imprima "Aprovado". Se a nota for maior ou igual a 5, mas menor que 7, imprima "Recuperação". Se a nota for menor que 5, imprima "Reprovado".
+
+<details>
+<summary>Resposta</summary>
+```js
+const nota = 6;
+
+if (nota >= 7) {
+    console.log('Aprovado');
+} else if (nota >= 5) {
+    console.log('Recuperação');
+} else {
+    console.log('Reprovado');
+}
+```
+</details>
+
+### Exercício 7: Validação de Número
+Escreva um programa que leia um número e verifique se ele é positivo, negativo ou zero. Utilize if, else if e else para resolver.
+
+<details>
+<summary>Resposta</summary>
+```js
+const numero = -3;
+
+if (numero > 0) {
+    console.log('Número positivo');
+} else if (numero < 0) {
+    console.log('Número negativo');
+} else {
+    console.log('Número zero');
+}
+```
+</details>
+
+### Exercício 8: Verificando Ano Bissexto
+Crie um programa que verifique se um ano é bissexto. Um ano é bissexto se for divisível por 4, mas não por 100, ou se for divisível por 400. Utilize as estruturas if e else.
+
+<details>
+<summary>Resposta</summary>
+```js
+const ano = 2024;
+
+if ((ano % 4 === 0 && ano % 100 !== 0) || (ano % 400 === 0)) {
+    console.log('Ano bissexto');
+} else {
+    console.log('Ano não bissexto');
+}
+```
+</details>
