@@ -13,6 +13,7 @@ let menorNota = 10;
 let acimaMedia = 0;
 let abaixoMedia = 0;
 
+// Vamos percorrer a Lista e tratar aluno por aluno
 alunos.forEach((aluno) => {
   const { nota1, nota2, nota3 } = aluno;
 
