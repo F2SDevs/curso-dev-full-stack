@@ -94,3 +94,107 @@ import Admonition from "@theme/Admonition";
    Para evitar erros, é uma boa prática usar métodos de conversão explícitos como
   `Number()`, `String()` ou `Boolean()` quando necessário.
 </Admonition>
+
+
+
+## Exercícios Propostos
+
+### Exercício 1: Convertendo String para Número
+Declare uma variável `idadeString` como uma string que representa um número, por exemplo, `"25"`. Em seguida, converta essa string para um número usando `parseInt`, `parseFloat` e `Number`, e exiba os resultados. Observe a diferença entre os métodos.
+
+<details>
+  <summary>Resposta</summary>
+```js
+const idadeString = "25";
+
+const idadeInt = parseInt(idadeString); // Converte para inteiro
+const idadeFloat = parseFloat(idadeString); // Converte para ponto flutuante
+const idadeNumber = Number(idadeString); // Converte usando Number()
+
+console.log(idadeInt);    // 25
+console.log(idadeFloat);  // 25
+console.log(idadeNumber); // 25
+</details>
+```
+</details>
+
+---
+
+### Exercício 2: Convertendo Número para String
+Crie uma variável `preco` com um valor numérico, por exemplo, `49.99`. Em seguida, converta esse número para uma string usando `String()` e `toString()` e exiba os resultados. Observe como o valor é exibido como uma string.
+
+<details>
+  <summary>Resposta</summary>
+```js
+const preco = 49.99;
+
+const precoString1 = String(preco);   // Converte usando String()
+const precoString2 = preco.toString(); // Converte usando toString()
+
+console.log(precoString1); // "49.99"
+console.log(precoString2); // "49.99"
+```
+</details>
+
+---
+
+### Exercício 3: Convertendo Valores para Booleanos
+Crie uma variável `valor` e atribua valores diferentes a ela, como `0`, `1`, `""`, `"hello"`, `null`, e `undefined`. Use `Boolean()` para converter cada um desses valores em um booleano e exiba o resultado. Quais valores são `true` e quais são `false`?
+
+<details>
+  <summary>Resposta</summary>
+```js
+const valor1 = 0;
+const valor2 = 1;
+const valor3 = "";
+const valor4 = "hello";
+const valor5 = null;
+const valor6 = undefined;
+
+console.log("0:", Boolean(valor1));          // false
+console.log("1:", Boolean(valor2));          // true
+console.log('"" (string vazia):', Boolean(valor3)); // false
+console.log('"hello":', Boolean(valor4));    // true
+console.log("null:", Boolean(valor5));       // false
+console.log("undefined:", Boolean(valor6));  // false
+```
+</details>
+
+---
+
+### Exercício 4: Coerção de Tipos em Operações
+Declare uma variável `numero` com o valor `5` e outra variável `texto` com o valor `"10"`. Use o operador `+` para somar `numero` e `texto`, e observe o resultado. Em seguida, use `Number()` para converter `texto` antes da soma e exiba o resultado. Analise a diferença.
+
+<details>
+  <summary>Resposta</summary>
+```js
+const numero = 5;
+const texto = "10";
+
+const resultadoComCoercao = numero + texto; // Coerção implícita para string
+console.log(resultadoComCoercao); // "510"
+
+const resultadoSemCoercao = numero + Number(texto); // Conversão explícita
+console.log(resultadoSemCoercao); // 15
+```
+</details>
+
+---
+
+### Exercício 5: Comparação com Conversão Implícita
+Declare duas variáveis: `a` com o valor `5` (número) e `b` com o valor `"5"` (string). Compare `a` e `b` usando `==` e `===`, e exiba o resultado de cada comparação. Analise qual a diferença entre os dois operadores.
+
+<details>
+  <summary>Resposta</summary>
+```js
+const a = 5;       // Número
+const b = "5";     // String
+
+console.log(a == b);  // true (coerção de tipo)
+console.log(a === b); // false (sem coerção de tipo)
+```
+</details>
+
+<Admonition type="tip" title="Dica">
+- **Seja cauteloso com a coerção de tipos**: Coerções automáticas podem ser úteis, mas também podem levar a resultados inesperados, como `"5" + 2` resultando em `"52"`. Prefira conversões explícitas quando possível.
+</Admonition>
