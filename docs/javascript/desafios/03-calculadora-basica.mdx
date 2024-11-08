@@ -1,29 +1,13 @@
 ---
-title: Analisador de Notas
-sidebar_position: 2
+title: Calculadora Básica
+sidebar_position: 3
 ---
 
 import Example from "@site/src/components/Example";
 
-Crie um script simples que analisa as notas dos alunos de uma sala de aula.
+- Descrição:
 
-O script precisa:
-- Exibir a média das notas de cada aluno.
-- Exibir quantos alunos ficaram acima e abaixo da média. `média = 6`
-- Exibir a maior e a menor nota da turma.
-
-A estrutura de dados que usaremos:
-```js
-const alunos = [
-  { nome: "João Paulo", notas: [7,5,8] },
-  { nome: "Maria Clara", notas: [9,6,7] },
-  { nome: "Carlos Eduardo", notas: [4,5,6] },
-  { nome: "Ana Beatriz", notas: [10,9,8] },
-  { nome: "Pedro Henrique", notas: [5,6,5] },
-];
-
-// Considere que as notas são valores numéricos entre 0 e 10.
-```
+  Solicite ao usuário que informe dois números e uma operação matemática (+, -, *, /). Em seguida, exiba o resultado da operação entre os dois números.
 
 <details>
   <summary>Conhecimentos Mínimos para o Desafio</summary>
@@ -40,5 +24,10 @@ const alunos = [
     <h1>Resolução do Desafio</h1>
     Tente resolver o desafio antes de ver a resposta. Pular direto para a solução é está sabotando seu próprio aprendizado e progresso!
   </summary>
-  <Example language="js" filename="javascript/desafios/02-analisador-de-notas.js" />
+  <Example language="js" filename="javascript/desafios/03-calculadora-basica.js" title="calculadora-basica.js"/>
+
+  Rode o script em um arquivo .html:
+  ```html
+  <script src="./03-calculadora-basica.js"></script>
+  ```
 </details>
