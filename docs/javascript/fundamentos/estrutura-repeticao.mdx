@@ -78,3 +78,125 @@ import Admonition from "@theme/Admonition";
   casos. Loops Aninhados: É possível ter loops dentro de loops, mas cuidado com
   a complexidade e o desempenho.
 </Admonition>
+
+
+## Exercício Propostos
+
+### Exercício 1: Soma de Números com For Loop
+Use um `for` loop para calcular e exibir a soma dos números de 1 a 100.
+
+<details>
+  <summary>Resposta</summary>
+```js
+let soma = 0; // Inicializa a variável soma com 0
+
+// Loop que vai de 1 a 100
+for (let i = 1; i <= 100; i++) {
+  soma += i; // Adiciona o valor de i à soma em cada iteração
+}
+
+console.log("Soma de 1 a 100:", soma); // Exibe o resultado final
+```
+</details>
+
+### Exercício 2: Contagem Regressiva com For Loop
+Crie um loop `for` que exiba uma contagem regressiva de 10 até 1 no console.
+<details>
+  <summary>Resposta</summary>
+```js
+// Loop que começa em 10 e vai até 1
+for (let i = 10; i >= 1; i--) {
+  console.log(i); // Exibe o valor de i a cada iteração
+}
+```
+</details>
+### Exercício 3: Jogo de Adivinhação com While Loop
+Usando um loop `while`, crie um programa que peça ao usuário para adivinhar um número entre 1 e 10. O loop deve continuar até que o usuário acerte o número correto.
+<details>
+  <summary>Resposta</summary>
+```js
+const numeroCorreto = Math.floor(Math.random() * 10) + 1; // Gera um número aleatório entre 1 e 10
+let tentativa; // Declara a variável tentativa
+
+// Loop continua até que a tentativa seja igual ao número correto
+while (tentativa !== numeroCorreto) {
+  tentativa = parseInt(prompt("Adivinhe um número entre 1 e 10:")); // Pede ao usuário um número
+
+  // Verifica se a tentativa é igual ao número correto
+  if (tentativa === numeroCorreto) {
+    console.log("Parabéns! Você acertou.");
+  } else {
+    console.log("Tente novamente."); // Exibe mensagem para tentar de novo
+  }
+}
+```
+</details>
+### Exercício 4: Menu com Do...While Loop
+Crie um programa que exiba um menu com opções e use um loop `do...while` para perguntar ao usuário qual opção ele quer selecionar. O programa deve terminar apenas quando o usuário escolher a opção "Sair".
+<details>
+  <summary>Resposta</summary>
+```js
+let opcao; // Declara a variável opcao
+
+// Loop exibe o menu e espera uma opção até o usuário escolher sair
+do {
+  console.log("Menu:\n1. Opção 1\n2. Opção 2\n3. Sair"); // Exibe o menu
+  opcao = parseInt(prompt("Escolha uma opção:")); // Pede ao usuário uma opção
+
+  // Verifica a opção selecionada
+  switch (opcao) {
+    case 1:
+      console.log("Você escolheu a Opção 1.");
+      break;
+    case 2:
+      console.log("Você escolheu a Opção 2.");
+      break;
+    case 3:
+      console.log("Saindo...");
+      break;
+    default:
+      console.log("Opção inválida."); // Mensagem de erro para opções inválidas
+  }
+} while (opcao !== 3); // O loop para apenas quando a opção "3" é selecionada
+
+```
+</details>
+### Exercício 5: Fatorial de um Número com For Loop
+Usando um loop `for`, calcule o fatorial de um número inteiro fornecido pelo usuário.
+<details>
+  <summary>Resposta</summary>
+```js
+const numero = parseInt(prompt("Digite um número para calcular o fatorial:")); // Pede ao usuário um número
+let fatorial = 1; // Inicializa o fatorial como 1
+
+// Loop para calcular o fatorial multiplicando de 1 até o número fornecido
+for (let i = 1; i <= numero; i++) {
+  fatorial *= i; // Multiplica o valor atual de fatorial por i
+}
+
+console.log(`Fatorial de ${numero}:`, fatorial); // Exibe o fatorial calculado
+```
+</details>
+### Exercício 6: Números Primos com For Loop
+Usando um `for` loop, exiba todos os números primos entre 1 e 50.
+<details>
+  <summary>Resposta</summary>
+```js
+for (let num = 2; num <= 50; num++) {
+  let ehPrimo = true; // Assume que o número é primo
+
+  // Verifica se o número é divisível por qualquer número de 2 até a raiz quadrada dele
+  for (let divisor = 2; divisor <= Math.sqrt(num); divisor++) {
+    if (num % divisor === 0) {
+      ehPrimo = false; // Se for divisível, não é primo
+      break; // Sai do loop de divisor
+    }
+  }
+
+  // Se ehPrimo ainda for true, o número é primo
+  if (ehPrimo) {
+    console.log(num); // Exibe o número primo
+  }
+}
+```
+</details>
