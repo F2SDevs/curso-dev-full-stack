@@ -157,3 +157,126 @@ console.log(Math.ceil(4.1));  // Saída 5
  - **Cuidado com Números Aleatórios**: O `Math.random()` gera números entre 0 (inclusive) e 1 (exclusive). Para um intervalo específico, multiplique pelo intervalo desejado. 
  - **Performance**: Funções matemáticas podem ser custosas em termos de desempenho, especialmente em loops, então use-as com sabedoria.
 </Admonition>
+
+
+
+# Exercícios Propostos
+
+### Exercício 1: Manipulação de Strings
+Crie uma variável chamada `frase` que contenha o texto "Aprender JavaScript é divertido!". Em seguida, transforme todo o texto para letras maiúsculas e depois para letras minúsculas.
+<details>
+  <summary>Resposta</summary>
+```js
+let frase = "Aprender JavaScript é divertido!";
+// Transformando em maiúsculas
+console.log(frase.toUpperCase()); // "APRENDER JAVASCRIPT É DIVERTIDO!"
+// Transformando em minúsculas
+console.log(frase.toLowerCase()); // "aprender javascript é divertido!"
+```
+</details>
+
+### Exercício 2: Manipulação de Datas
+Crie uma variável `dataAtual` que armazene a data e hora atuais. Adicione 10 dias à data atual e exiba o resultado no console. Em seguida, formate a nova data no padrão brasileiro, incluindo o dia da semana por extenso.
+
+
+<details>
+  <summary>Resposta</summary>
+```js
+let dataAtual = new Date();
+// Adicionando 10 dias
+dataAtual.setDate(dataAtual.getDate() + 10);
+console.log(dataAtual); // Exibe a data atual + 10 dias
+
+// Formatando data no padrão brasileiro com o dia da semana
+let opcoes = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+console.log(dataAtual.toLocaleDateString('pt-BR', opcoes)); // Exemplo: "domingo, 10 de outubro de 2024"
+```
+</details>
+
+
+
+### Exercício 3: Manipulando Matemática
+Crie uma função que recebe um número e retorne a raiz quadrada desse número. Se o número for negativo, retorne uma mensagem indicando que a raiz quadrada de um número negativo não é permitida. Teste a função com diferentes números, incluindo um valor negativo.
+
+
+<details>
+  <summary>Resposta</summary>
+```js
+function calcularRaizQuadrada(numero) {
+    if (numero < 0) {
+        return "A raiz quadrada de um número negativo não é permitida.";
+    }
+    return Math.sqrt(numero);
+}
+
+console.log(calcularRaizQuadrada(25)); // 5
+console.log(calcularRaizQuadrada(-9)); // "A raiz quadrada de um número negativo não é permitida."
+```
+</details>
+### Exercício 4: Gerando Números Aleatórios
+Gere um número aleatório entre 1 e 100 e exiba o resultado. Em seguida, multiplique esse número por um valor entre 5 e 10 e exiba o resultado novamente.
+
+<details>
+  <summary>Resposta</summary>
+```js
+// Número aleatório entre 1 e 100
+let numeroAleatorio = Math.floor(Math.random() * 100) + 1;
+console.log("Número aleatório entre 1 e 100:", numeroAleatorio);
+
+// Multiplicando o número aleatório por um valor entre 5 e 10
+let multiplicador = Math.floor(Math.random() * 6) + 5; // Gera um número entre 5 e 10
+let resultadoMultiplicado = numeroAleatorio * multiplicador;
+console.log("Número aleatório multiplicado por um valor entre 5 e 10:", resultadoMultiplicado);
+```
+</details>
+
+### Exercício 5: Arredondamento de Números
+Arredonde os seguintes números para o inteiro mais próximo usando `Math.round()`: 2.3, 5.9 e 3.5. Em seguida, arredonde os mesmos números para baixo usando `Math.floor()` e para cima usando `Math.ceil()`. Exiba todos os resultados de cada arredondamento no console.
+
+<details>
+  <summary>Resposta</summary>
+```js
+// Usando Math.round()
+console.log(Math.round(2.3)); // 2
+console.log(Math.round(5.9)); // 6
+console.log(Math.round(3.5)); // 4
+
+// Usando Math.floor()
+console.log(Math.floor(2.3)); // 2
+console.log(Math.floor(5.9)); // 5
+console.log(Math.floor(3.5)); // 3
+
+// Usando Math.ceil()
+console.log(Math.ceil(2.3)); // 3
+console.log(Math.ceil(5.9)); // 6
+console.log(Math.ceil(3.5)); // 4
+```
+</details>
+### Exercício 6: Desafio de Data e Hora
+A partir da data atual, adicione um número específico de dias e exiba a data resultante no formato "DD/MM/YYYY". Use os valores 15, 30 e 365 para o número de dias, um de cada vez.
+
+
+<details>
+  <summary>Resposta</summary>
+```js
+// Data atual
+let dataAtual = new Date();
+console.log("Data atual:", dataAtual.toLocaleDateString("pt-BR"));
+
+// Adicionando 15 dias
+let dataMais15Dias = new Date(dataAtual);
+dataMais15Dias.setDate(dataAtual.getDate() + 15);
+console.log("Data após 15 dias:", dataMais15Dias.toLocaleDateString("pt-BR"));
+
+// Adicionando 30 dias
+let dataMais30Dias = new Date(dataAtual);
+dataMais30Dias.setDate(dataAtual.getDate() + 30);
+console.log("Data após 30 dias:", dataMais30Dias.toLocaleDateString("pt-BR"));
+
+// Adicionando 365 dias
+let dataMais365Dias = new Date(dataAtual);
+dataMais365Dias.setDate(dataAtual.getDate() + 365);
+console.log("Data após 365 dias:", dataMais365Dias.toLocaleDateString("pt-BR"));
+```
+</details>
+
