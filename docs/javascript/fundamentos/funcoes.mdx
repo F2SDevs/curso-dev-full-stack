@@ -118,14 +118,77 @@ console.log(quadrado(4)); // Saída: 16
 ### Criação de Função Simples
    Crie uma função chamada `cumprimentar` que recebe um parâmetro `nome` e exibe uma mensagem de saudação no console como "Olá, [nome]!" Se nenhum nome for passado exiba "Olá, visitante!"
 
+<details>
+<summary>Resposta</summary>
+```js
+   function cumprimentar(nome = "visitante") {
+     console.log(`Olá, ${nome}!`);
+   }
+
+   // Chamada da função
+   cumprimentar("Kevin"); // Saída: "Olá, Kevin!"
+   cumprimentar(); // Saída: "Olá, visitante!"
+```
+</details>
+<summary>Resposta</summary>
 ### Função de Soma com Retorno
    Implemente uma função chamada `somar` que recebe dois números como parâmetros e retorna a soma deles Em seguida chame essa função e exiba o resultado no console
+<details>
+<summary>Resposta</summary>
+```js
+function somar(a, b) {
+  return a + b;
+}
+
+// Chamada da função
+const resultado = somar(5, 3);
+console.log(resultado); // Saída: 8
+```
+
+</details>
 
 ### Conversão para Arrow Function
    Transforme a função `cumprimentar` do primeiro exercício em uma arrow function Chame-a e verifique se o comportamento continua o mesmo
+<details>
+<summary>Resposta</summary>
+```js
+const cumprimentar = (nome = "visitante") => {
+  console.log(`Olá, ${nome}!`);
+};
+
+// Chamada da função
+cumprimentar("Kevin"); // Saída: "Olá, Kevin!"
+cumprimentar(); // Saída: "Olá, visitante!"
+```
+</details>
 
 ### Cálculo de Média com Função
    Crie uma função chamada `calcularMedia` que recebe três números como parâmetros e retorna a média aritmética deles Exiba o resultado da média no console
+<details>
+<summary>Resposta</summary>
+```js
+function calcularMedia(a, b, c) {
+  return (a + b + c) / 3;
+}
 
+// Chamada da função
+const media = calcularMedia(6, 8, 10);
+console.log(media); // Saída: 8
+```
+</details>
+<summary>Resposta</summary>
 ### Função com Parâmetro Opcionais
    Implemente uma função chamada `exibirMensagem` que recebe dois parâmetros `mensagem` e `nome` sendo que o `nome` é opcional e por padrão deve ser "Visitante" Exiba no console uma frase que combine a mensagem e o nome
+<details>
+<summary>Resposta</summary>
+```js
+function exibirMensagem(mensagem, nome = "Visitante") {
+  console.log(`${mensagem}, ${nome}!`);
+}
+
+// Chamada da função
+exibirMensagem("Bem-vindo"); // Saída: "Bem-vindo, Visitante!"
+exibirMensagem("Bem-vindo", "Kevin"); // Saída: "Bem-vindo, Kevin!"
+```
+
+</details>
