@@ -7,8 +7,11 @@ import Example from "@site/src/components/Example";
 
 - Descrição:
 
-  Solicite ao usuário que informe dois números e uma operação matemática (+, -, *, /). Em seguida, exiba o resultado da operação entre os dois números.
+  Crie uma função chamada `calculadora` que receba três parâmetros: `num1`, `num2` e `operador`. A função deve realizar a operação matemática especificada pelo `operador = ('+', '-', '*' ou '/')` entre os valores `num1` e `num2`, e retornar o `resultado`.
 
+  - Caso seja passado um `operador` inválido retorne a mensagem: `'Operador inválido.'`
+  - Caso seja passada uma operação dividida por `0` retorne a mensagem: `'Não é possível dividir por zero.'`
+  - Caso tudo tenha saído correto retorne a operação completa. EX: `'10 + 10 = 20'`
 <details>
   <summary>Conhecimentos Mínimos para o Desafio</summary>
   - [Variaveis](/docs/javascript/fundamentos/variaveis)
@@ -16,7 +19,7 @@ import Example from "@site/src/components/Example";
   - [Operadores](/docs/javascript/fundamentos/operadores)
   - [Estrututas Condicionais](/docs/javascript/fundamentos/estruturas-condicionais)
   - [Manipulação de Dados](/docs/javascript/fundamentos/manipulacao-de-dados)
-  - [Estrututas de Repetição](/docs/javascript/fundamentos/estruturas-repeticao)
+  - [Funções](/docs/javascript/fundamentos/funcoes)
 </details>
 
 <details>
@@ -25,9 +28,4 @@ import Example from "@site/src/components/Example";
     Tente resolver o desafio antes de ver a resposta. Pular direto para a solução é está sabotando seu próprio aprendizado e progresso!
   </summary>
   <Example language="js" filename="javascript/desafios/03-calculadora-basica.js" title="calculadora-basica.js"/>
-
-  Rode o script em um arquivo .html:
-  ```html
-  <script src="./03-calculadora-basica.js"></script>
-  ```
 </details>
